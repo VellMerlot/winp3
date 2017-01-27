@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WINP3" default="build-war">
+	
+	<property name="web.dir">WebContent</property>
+	<property name="web.lib.dir">${web.dir}/WEB-INF/lib</property>
+	<property name="build.classes.dir">build/WEB-INF/classes</property>
+	<property name="dist.dir">dist</property>
+	<property name="project.dir">.</property>
+	<property name="project.name">WINP3</property>
+	<property name="tomcat.home">C:/Program Files/Apache Software Foundation/Tomcat 8.5</property>
+	
+	<path id="compile.classpath">
+		<fileset dir="${web.lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${tomcat.home}/bin" includes="*.jar" />
+		<fileset dir="${tomcat.home}/lib" includes="*.jar" />
+	</path>
+ 		
+	<target name="clean" depends="clean_build">
+		<delete includeemptydirs="true">
+		    <fileset dir="${dist.dir}" includes="**/*"/>
+		</delete>
+	</target>
+			
+	<target name="clean_build">
+		<delete includeemptydirs="true">
+		    <fileset dir="${build.dir}" includes="**/*"/>
+		</delete>
+	</target>	
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.classes.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+ 
+	<target name="compile" depends="init" >
+		<javac destdir="${build.classes.dir}" debug="false" srcdir="src" source="1.7" target="1.7" includeantruntime="false">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<copy todir="${build.classes.dir}">
+			<fileset dir="resources">
+				<include name="**/*.*"/>
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}" >
+			<fileset dir="${web.dir}">
+		    	<include name="**/*.*"/>
+		    </fileset>
+		</copy>
+	</target>
+
+	<target name="build-war" depends="compile">
+		<war destfile="${dist.dir}/${project.name}.war" webxml="${build.dir}/WEB-INF/web.xml" basedir="${build.dir}">
+		</war>
+		<antcall target="clean_build" inheritall="false" />
+	</target>
+			
+</project>

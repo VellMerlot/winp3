@@ -1,4 +1,4 @@
-package es.limolike.winp3RS.web.resource;
+package es.limolike.winp3RS.resource;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;

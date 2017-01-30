@@ -17,7 +17,6 @@ import org.springframework.stereotype.Repository;
 
 import es.limolike.winp3.common.AppException;
 import es.limolike.winp3.common.Base;
-import es.limolike.winp3.common.LogLevel;
 
 @Repository
 public abstract class Dao extends Base implements IDao {
@@ -37,12 +36,12 @@ public abstract class Dao extends Base implements IDao {
 	//methods		
 	public Integer execute(String statement, Map<String,Object> params) throws AppException {
 		try {
-			log(LogLevel.DEBUG, msgStmt + statement, null);
+//			log(LogLevel.DEBUG, msgStmt + statement, null);
 			Integer result = getNamedParameterJdbcTemplate().update(statement, params);
-			log(LogLevel.DEBUG, msgRows + result, null);
+//			log(LogLevel.DEBUG, msgRows + result, null);
 			return result;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+statement+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+statement+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 	}
@@ -51,15 +50,15 @@ public abstract class Dao extends Base implements IDao {
 		Object result = null;
 		
 		try {
-			log(LogLevel.DEBUG, msgStmt + statement, null);	
+//			log(LogLevel.DEBUG, msgStmt + statement, null);	
 			result = getNamedParameterJdbcTemplate().queryForObject(statement, params, elementType);
 			if (result != null){
 				result = elementType.cast(result);	
-				log(LogLevel.DEBUG, msgRows + result, null);
+//				log(LogLevel.DEBUG, msgRows + result, null);
 			}
 			return result;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+statement+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+statement+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 	}
@@ -67,16 +66,16 @@ public abstract class Dao extends Base implements IDao {
 	public Object queryObject(String statement, Map<String,Object> params, Class<?> elementType) throws AppException {
 		Object result = null;
 		try {
-			log(LogLevel.DEBUG, msgStmt + statement, null);
+//			log(LogLevel.DEBUG, msgStmt + statement, null);
 			result = elementType.cast(result);	
 			result = getNamedParameterJdbcTemplate().queryForObject(statement, params, ParameterizedBeanPropertyRowMapper.newInstance(elementType));
-			log(LogLevel.DEBUG, msgRows + result, null);
+//			log(LogLevel.DEBUG, msgRows + result, null);
 			
 		} catch (EmptyResultDataAccessException ex) {
 			//log(LogLevel.ERROR, msgError + " [EmptyResultData]", ex);
 			result = null;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+statement+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+statement+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 		
@@ -85,17 +84,17 @@ public abstract class Dao extends Base implements IDao {
 
 	public List<Map<String,Object>> queryList(String query, Map<String,Object> params) throws AppException {
 		try{
-			log(LogLevel.DEBUG, msgStmt + query, null);
+//			log(LogLevel.DEBUG, msgStmt + query, null);
 			List<Map<String,Object>> result = getNamedParameterJdbcTemplate().queryForList(query, params);
 
 			Integer rows = null;
 			if(result!=null){
 				rows = result.size();
 			}
-			log(LogLevel.DEBUG, msgRows + rows, null);
+//			log(LogLevel.DEBUG, msgRows + rows, null);
 			return result;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 	}
@@ -105,17 +104,17 @@ public abstract class Dao extends Base implements IDao {
 	 * */	
 	public List<?> queryList(String query, Map<String,Object> params, Class<?> elementType) throws AppException {
 		try{
-			log(LogLevel.DEBUG, msgStmt + query, null);
+//			log(LogLevel.DEBUG, msgStmt + query, null);
 			List<?> result = getNamedParameterJdbcTemplate().queryForList(query, params,elementType);
 
 			Integer rows = null;
 			if(result!=null){
 				rows = result.size();
 			}
-			log(LogLevel.DEBUG, msgRows + rows, null);
+//			log(LogLevel.DEBUG, msgRows + rows, null);
 			return result;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 	}
@@ -123,31 +122,31 @@ public abstract class Dao extends Base implements IDao {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<?> queryListBean(String query, Map<String,Object> params, Class<?> elementType) throws AppException {
 		try{
-			log(LogLevel.DEBUG, msgStmt + query, null);
+//			log(LogLevel.DEBUG, msgStmt + query, null);
 			List<?> result = getNamedParameterJdbcTemplate().query(query, params, new BeanPropertyRowMapper(elementType));
 
 			Integer rows = null;
 			if(result!=null){
 				rows = result.size();
 			}
-			log(LogLevel.DEBUG, msgRows + rows, null);
+//			log(LogLevel.DEBUG, msgRows + rows, null);
 			return result;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 	}
 
 	public Integer count(String query, Map<String,Object> params) throws AppException {
 		try{
-			log(LogLevel.DEBUG, msgStmt + query, null);
+//			log(LogLevel.DEBUG, msgStmt + query, null);
 			Integer result = getNamedParameterJdbcTemplate().queryForInt(query, params);
-			log(LogLevel.DEBUG, msgRows + result, null);
+//			log(LogLevel.DEBUG, msgRows + result, null);
 			return result;
 		} catch (EmptyResultDataAccessException ex) {
 			return 0;
 		} catch(DataAccessException e){
-			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
+//			log(LogLevel.ERROR, msgError + " ["+query+"]", e);
 			throw new AppException("ERROR", msgThrow, e);
 		}
 	}
@@ -173,9 +172,9 @@ public abstract class Dao extends Base implements IDao {
 
 	public void setAutocommit(boolean commit){
 		try {
-			System.out.println("AutoCommit Value is :::: **** : " + getDataSource().getConnection().getAutoCommit());
+//			System.out.println("AutoCommit Value is :::: **** : " + getDataSource().getConnection().getAutoCommit());
 			getDataSource().getConnection().setAutoCommit(commit);
-			System.out.println("AutoCommit Value is :::: **** : " + getDataSource().getConnection().getAutoCommit());
+//			System.out.println("AutoCommit Value is :::: **** : " + getDataSource().getConnection().getAutoCommit());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

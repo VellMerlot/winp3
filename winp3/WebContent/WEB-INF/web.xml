@@ -26,7 +26,7 @@
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-      <param-value>es.limolike.winp3RS.web.resource</param-value>
+      <param-value>es.limolike.winp3RS.resource</param-value>
 		</init-param>
 		<init-param>
         	<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
@@ -42,7 +42,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-		classpath:applicationContext.xml
+			classpath:applicationContext.xml
 			classpath:spring-security.xml
 		</param-value>
   </context-param>

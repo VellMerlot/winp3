@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import es.limolike.winp3MVC.util.DbUtil;
-
-
-
 @Controller
 public class AppController {
 
@@ -27,23 +23,46 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Custom Login Form");
 		model.addObject("message", "This is protected page!");
-		model.setViewName("admin");
+		model.setViewName("home");
 
 		return model;
 	}
 
-	@RequestMapping(value = { "/admin/ping" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/page/ping" }, method = RequestMethod.GET)
 	public ModelAndView pingPage() {
 
 		ModelAndView model = new ModelAndView();
-		//model.addObject("server", DbUtil.getStaticServerUrl());
 		model.setViewName("ping");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/page/simulator" }, method = RequestMethod.GET)
+	public ModelAndView simPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("simulator");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/page/user" }, method = RequestMethod.GET)
+	public ModelAndView userPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("user");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/page/configuration" }, method = RequestMethod.GET)
+	public ModelAndView configPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("configuration");
 		return model;
 	}
 			
@@ -58,8 +77,6 @@ public class AppController {
 		model.setViewName("login");
 
 		if (logout != null) {
-			//model.addObject("message", "You've been logged out successfully.");
-
 			ModelAndView modelAndView =  new ModelAndView("redirect:/");
 			return modelAndView;
 		}

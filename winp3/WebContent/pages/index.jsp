@@ -4,30 +4,32 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  
+  
   <link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
+  <link rel="stylesheet" href="<c:url value='/static/css/agency.css' />">
   
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   
-  <style>
-  /*.modal-header, h4, .close {
-      background-color: #5cb85c;
-      color:white !important;
-      text-align: center;
-      font-size: 30px;
-  }
-  .modal-footer {
-      background-color: #f9f9f9;
-  }*/
-  </style>
+  
+
 </head>
 <body>
 
-<div class="container">
-  <h2>Modal Login Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading">Tu futuro.</div>
+            <div class="intro-lead-in">Limolike y WinP3, protegen, no solo personas y patrimonios, sino también emociones y estilos de vida.</div>
+            <a id="knowBtn" href="http://limolike.es/#primary" class="page-scroll btn btn-primary_main btn-lg" style="    font: 42px/1.1 "Raleway", sans-serif;">Quiero saber más</a>
+            <a id="myBtn" href="#" class="page-scroll btn btn-primary_main btn-lg">Login</a>
+        </div>
+    </div>
+</header>
 
+
+<div class="container">
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -48,9 +50,6 @@
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input type="text" class="form-control" id="psw" placeholder="Enter password">
             </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
               <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
         </div>
@@ -63,7 +62,27 @@
     </div>
   </div> 
 </div>
- 
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Todos los derechos reservados. 2017 © <a href="http://limolike.es/">Limolike S.L.</a></span>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 <script>
 $(document).ready(function(){
     $("#myBtn").click(function(){

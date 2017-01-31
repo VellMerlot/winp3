@@ -23,7 +23,7 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/page", method = RequestMethod.GET)
+	@RequestMapping(value = "/pages", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -33,16 +33,8 @@ public class AppController {
 
 		return model;
 	}
-
-	@RequestMapping(value = { "/page/ping" }, method = RequestMethod.GET)
-	public ModelAndView pingPage() {
-
-		ModelAndView model = new ModelAndView();
-		model.setViewName("ping");
-		return model;
-	}
 	
-	@RequestMapping(value = { "/page/simulator" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/pages/simulator" }, method = RequestMethod.GET)
 	public ModelAndView simPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -50,7 +42,7 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/page/user" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/pages/user" }, method = RequestMethod.GET)
 	public ModelAndView userPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -58,7 +50,7 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/page/configuration" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/pages/configuration" }, method = RequestMethod.GET)
 	public ModelAndView configPage() {
 
 		ModelAndView model = new ModelAndView();

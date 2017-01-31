@@ -13,7 +13,7 @@
 
 	<security:http auto-config="true" use-expressions="true">
 		<!--<security:intercept-url pattern="/web/page/**" access="isAuthenticated()" />
-		<security:intercept-url pattern="/web/page/user/*" access="hasRole('Admin')" />-->
+		<security:intercept-url pattern="/web/page/user/*" access="hasRole('ADMIN')" />-->
 			
 		<!-- access denied page -->
 		<security:access-denied-handler error-page="/web/403" />
@@ -41,8 +41,8 @@
 	  <security:authentication-provider>
 	  	<security:password-encoder hash="md5"/>
 		<security:jdbc-user-service data-source-ref="dataSource"
-		  users-by-username-query="select sso_id as username, password, '1' as enabled from winp3_sys.app_user where user_name=?"
-		  authorities-by-username-query="SELECT sso_id as username, p.type as role FROM winp3_sys.app_user u, winp3_sys.app_user_user_profile up , winp3_sys.user_profile p where p.id = up.user_profile_id and u.id = up.user_id and u.sso_id=?" />
+		  users-by-username-query="select user_name, password, status from winp3_sys.app_user where user_name=? and status=0"
+		  authorities-by-username-query="SELECT user_name, p.type as role FROM winp3_sys.app_user u, winp3_sys.app_user_user_profile up , winp3_sys.user_profile p where p.id = up.user_profile_id and u.id = up.user_id and u.user_name=?" />
 	  </security:authentication-provider>
 	</security:authentication-manager>
 

@@ -87,10 +87,10 @@ public abstract class Dao extends Base implements IDao {
 //			log(LogLevel.DEBUG, msgStmt + query, null);
 			List<Map<String,Object>> result = getNamedParameterJdbcTemplate().queryForList(query, params);
 
-			Integer rows = null;
-			if(result!=null){
-				rows = result.size();
-			}
+//			Integer rows = null;
+//			if(result!=null){
+//				rows = result.size();
+//			}
 //			log(LogLevel.DEBUG, msgRows + rows, null);
 			return result;
 		} catch(DataAccessException e){
@@ -107,10 +107,10 @@ public abstract class Dao extends Base implements IDao {
 //			log(LogLevel.DEBUG, msgStmt + query, null);
 			List<?> result = getNamedParameterJdbcTemplate().queryForList(query, params,elementType);
 
-			Integer rows = null;
-			if(result!=null){
-				rows = result.size();
-			}
+//			Integer rows = null;
+//			if(result!=null){
+//				rows = result.size();
+//			}
 //			log(LogLevel.DEBUG, msgRows + rows, null);
 			return result;
 		} catch(DataAccessException e){
@@ -125,10 +125,10 @@ public abstract class Dao extends Base implements IDao {
 //			log(LogLevel.DEBUG, msgStmt + query, null);
 			List<?> result = getNamedParameterJdbcTemplate().query(query, params, new BeanPropertyRowMapper(elementType));
 
-			Integer rows = null;
-			if(result!=null){
-				rows = result.size();
-			}
+//			Integer rows = null;
+//			if(result!=null){
+//				rows = result.size();
+//			}
 //			log(LogLevel.DEBUG, msgRows + rows, null);
 			return result;
 		} catch(DataAccessException e){
@@ -137,6 +137,7 @@ public abstract class Dao extends Base implements IDao {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public Integer count(String query, Map<String,Object> params) throws AppException {
 		try{
 //			log(LogLevel.DEBUG, msgStmt + query, null);

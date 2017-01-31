@@ -20,50 +20,50 @@
 	    
 	    <!-- Custom styles for this template -->
     	<link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
+    	<link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
     
 	</head>
 
   <body>
   
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="../static/img/logo-winp3.png" alt="WinP3">
+        </a>
+      </div>
+      <div id="navbar3" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+  
 	<div class="container">
 	
-		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="<c:url value='/' />">WIMP3</a>
-	        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown active">
-	           <a href="<c:url value='/web/admin' />" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ADMIN <span class="caret"></span></a>
-               <ul class="dropdown-menu" role="menu">
-               		<li><a href="<c:url value='jobs' />">1</a></li>
-	                <li><a href="<c:url value='exports' />">2</a></li>
-	                <li><a href="<c:url value='repository' />">3</a></li>	                 
-	                <li><a href="<c:url value='instances' />">4</a></li>	                
-	                <li><a href="<c:url value='upload' />">5</a></li>
-	                <li class="active"><a href="<c:url value='notification' />">6</a></li>
-               </ul>
-             </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
-                    class="glyphicon glyphicon-user"></span>session <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:logout()"><span class="glyphicon glyphicon-off"></span>logout</a></li>
-          </ul>
-                </li>
-	            </ul>
-	            </div>
-	        <!--/.nav-collapse -->
-	      </div>
-	    </div>
 		<c:url value="/web/j_spring_security_logout" var="logoutUrl" />
 		<form action="${logoutUrl}" method="post" id="logoutForm">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

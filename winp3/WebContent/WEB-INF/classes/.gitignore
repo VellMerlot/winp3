@@ -1,1 +1,7 @@
+/application-https.properties
+/applicationContext.xml
+/config.properties
 /es/
+/log4j.properties
+/mvc-dispatcher-servlet.xml
+/spring-security.xml

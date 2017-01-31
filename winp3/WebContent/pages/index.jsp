@@ -11,8 +11,7 @@
   
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-  
-  
+
 
 </head>
 <body>

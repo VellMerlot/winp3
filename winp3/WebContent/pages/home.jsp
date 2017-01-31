@@ -7,18 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
+  <link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
   
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   
-  <style type="text/css">
-  
-  	img {
-	    width: auto;
-	    height: 100%;
-	}
-  
-  </style>
 <body>	
 
   <nav class="navbar navbar-inverse navbar-static-top">
@@ -30,7 +23,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="../static/img/logo-winp3.png" alt="Dispute Bills">
+        <a class="navbar-brand" href="#"><img src="../static/img/logo-winp3.png" alt="WinP3">
         </a>
       </div>
       <div id="navbar3" class="navbar-collapse collapse">

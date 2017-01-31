@@ -13,7 +13,7 @@
 		<meta name="author" content="">
 		<link rel="icon" href="<c:url value='/img/favicon.ico' />">
 	
-    	<title>USERS</title>
+    	<title>Gestión de Usuarios</title>
 
 	 	<!-- Bootstrap core CSS -->
     	<link href="<c:url value='/static/css/bootstrap.min.css'/>" rel="stylesheet">
@@ -71,12 +71,12 @@
     	      	    
 
 			<div class="jumbotron">
-				<h1>title</h1>
-				<p>description</p>
+				<h1>Gestión de usuarios</h1>
+				<p>Alta, baja y modificación de usuarios registrados</p>
 			</div>
 		
 			<div class="page-header">
-	        	<h1>title</h1>
+	        	<h1>Listado de usuarios</h1>
 	      	</div>
 	      	
 			<div class="row" style="padding-top: 5%;">
@@ -84,13 +84,13 @@
 		          <table class="table table-striped table-hover" id="tabla">
 		            <thead>
 		              <tr>
-		              	<th>table.col1</th>
-						<th>table.col2</th>
-						<th>table.col3</th>
-						<th>table.col4</th>
-						<th>table.col5</th>
-						<th>table.col6</th>
-						<th>table.col7</th>
+		              	<th>Nombre de usuario</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Email</th>
+						<th>Estado</th>
+						<th>Rol</th>
+						<th>Acciones</th>
 		              </tr>
 		            </thead>
 		            <tbody>		             

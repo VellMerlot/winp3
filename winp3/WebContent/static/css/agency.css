@@ -251,7 +251,7 @@ fieldset[disabled] .btn-xl.active {
 }
 header {
 /*   background-image: url('../img/header-bg.jpg'); */
-	background-image:url(http://limolike.es/wp-content/uploads/2016/12/cropped-fondo-limolike.png);
+	background-image:url('../img/cropped-fondo-limolike.png');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

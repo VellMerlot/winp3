@@ -11,6 +11,7 @@
   
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+  <script src="<c:url value='/static/js/home.js' />"></script>
   
 <body>	
 
@@ -41,6 +42,7 @@
               <li class="dropdown-header">Nav header</li>
               <li><a href="#">Separated link</a></li>
               <li><a href="#">One more separated link</a></li>
+              <li><a href="javascript:logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -49,6 +51,11 @@
     </div>
     <!--/.container-fluid -->
   </nav>
-
+  
+  
+	<c:url value="/web/j_spring_security_logout" var="logoutUrl" />
+		<form action="${logoutUrl}" method="post" id="logoutForm">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		</form>
 </body>
 </html>

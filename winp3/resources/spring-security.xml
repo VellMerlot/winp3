@@ -12,21 +12,21 @@
 
 
 	<security:http auto-config="true" use-expressions="true">
-		<!--<security:intercept-url pattern="/web/page/**" access="isAuthenticated()" />
-		<security:intercept-url pattern="/web/page/user/*" access="hasRole('ADMIN')" />-->
+		<!-- <security:intercept-url pattern="/web/page/**" access="isAuthenticated()" /> -->
+		<security:intercept-url pattern="/web/page/**" access="hasRole('ADMIN')" />
 			
 		<!-- access denied page -->
 		<security:access-denied-handler error-page="/web/403" />
-		<!--
+
 		<security:form-login
 			login-processing-url="/web/j_spring_security_check"
 		    login-page="/web/login" 
-		    default-target-url="/web/welcome" 
+		    default-target-url="/web/pages" 
 			authentication-failure-url="/web/login?error" 
 			username-parameter="username"
 			password-parameter="password" />
 		<security:logout logout-url="/web/j_spring_security_logout" logout-success-url="/web/login?logout" delete-cookies="JSESSIONID"/>
-		-->
+		
 		<!-- enable csrf protection -->
 		<security:csrf />
 	</security:http>
@@ -41,8 +41,8 @@
 	  <security:authentication-provider>
 	  	<security:password-encoder hash="md5"/>
 		<security:jdbc-user-service data-source-ref="dataSource"
-		  users-by-username-query="select user_name, password, status from winp3_sys.app_user where user_name=? and status=0"
-		  authorities-by-username-query="SELECT user_name, p.type as role FROM winp3_sys.app_user u, winp3_sys.app_user_user_profile up , winp3_sys.user_profile p where p.id = up.user_profile_id and u.id = up.user_id and u.user_name=?" />
+		  users-by-username-query="select user_name as username, password as password, '1' as enabled from winp3_sys.app_user where user_name=? and status=0"
+		  authorities-by-username-query="SELECT user_name as username, p.type as role FROM winp3_sys.app_user u, winp3_sys.app_user_user_profile up , winp3_sys.user_profile p where p.id = up.user_profile_id and u.id = up.user_id and u.user_name=?" />
 	  </security:authentication-provider>
 	</security:authentication-manager>
 

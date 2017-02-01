@@ -64,16 +64,16 @@ public class AppController {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
+			model.addObject("error", "Invalid username or password!");
+			model.addObject("login", "true");
+			model.setViewName("index");
+		} else {
+			if (logout != null) {
+				model.setViewName("redirect:/");
+			}
 		}
-		model.setViewName("login");
-
-		if (logout != null) {
-			ModelAndView modelAndView =  new ModelAndView("redirect:/");
-			return modelAndView;
-		}
-
 		return model;
+		
 	}
 
 	//for 403 access denied page

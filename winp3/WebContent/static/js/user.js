@@ -80,7 +80,3 @@ function getId(elem){
 function isEmpty(val){
     return (val === undefined || val == null || val.length <= 0) ? true : false;
 }
-
-function logout() {
-	document.getElementById("logoutForm").submit();
-}

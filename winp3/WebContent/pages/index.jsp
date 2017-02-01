@@ -11,7 +11,7 @@
   
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-
+  <script src="<c:url value='/static/js/login.js' />"></script>
 
 </head>
 <body>
@@ -40,17 +40,22 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form role="form" name='loginForm' action="<c:url value='/web/j_spring_security_check' />" method='POST'>
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+          <input type="hidden" name="error" id="error" value="${error}" />
+          
             <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input class="form-control" placeholder="username" name="username" type="text" required autofocus>
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <input class="form-control" placeholder="password" name="password" type="password" required value="">
             </div>
               <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
+          <br>
+          <div class="alert alert-dismissible alert-danger" id="error_msg"></div>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>          
@@ -82,13 +87,6 @@
         </div>
     </footer>
 
-<script>
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#myModal").modal();
-    });
-});
-</script>
 
 </body>
 </html>

@@ -14,14 +14,48 @@ function loadList() {
 			 $.each(obj, function() {
 				 var html = '<tr id="'+this['id']+'">';
 				 
+				 html += '<td>';
+				 
+				 if (this['role'] == 1) html += '<span class="glyphicon glyphicon-user" style="color: yellow"></span>';
+				 if (this['role'] == 2) html += '<span class="glyphicon glyphicon-user"></span>';
+				 
+				 html += '</td>';
 				 html += '<td>'+this['userName']+'</td>';
 				 html += '<td>'+this['firstName']+'</td>';
 				 html += '<td>'+this['lastName']+'</td>';
 				 html += '<td>'+this['email']+'</td>';
-				 html += '<td>'+this['status']+'</td>';
-				 html += '<td>'+this['role']+'</td>';
+				 html += '<td>';
 				 
-				 html += '<td></td>';
+				 if (this['status'] == '0') html += 'Activo';
+				 if (this['status'] == '1') html += 'Eliminado';
+				 if (this['status'] == '2') html += 'Pendiente';
+				 
+				 html += '</td>';
+				 
+				 
+				 
+				 
+				 html += '<td class="actions">';
+				 
+				 if (this['status'] == '0'){
+					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>';
+					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span></button>';
+				 }
+				 if (this['status'] == '1'){
+					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></button>';
+				 }
+				 if (this['status'] == '2'){
+					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span></button>';
+				 }
+				 /*
+				  * EDITAR
+				  * ELIMINAR
+				  * --> RESETEAR PASS
+				  * --> RECUPERAR
+				  * */
+				 
+				 
+				 html += '</td>';
 				 html += '</tr>';
 				 
 				 $('#tabla').append(html);

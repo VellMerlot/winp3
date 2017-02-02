@@ -47,12 +47,13 @@
 		          <table class="table table-striped table-hover" id="tabla">
 		            <thead>
 		              <tr>
+		              	<th></th>
 		              	<th>Nombre de usuario</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
 						<th>Email</th>
 						<th>Estado</th>
-						<th>Rol</th>
+						
 						<th>Acciones</th>
 		              </tr>
 		            </thead>

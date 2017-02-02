@@ -12,15 +12,17 @@
 
 
 	<security:http auto-config="true" use-expressions="true">
-		<!-- <security:intercept-url pattern="/web/page/**" access="isAuthenticated()" /> -->
-		<security:intercept-url pattern="/web/page/**" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/web/pages" access="isAuthenticated()" />
+		<security:intercept-url pattern="/web/pages/user**" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/web/pages/configuration**" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/web/pages/simulator**" access="isAuthenticated()" />
 			
 		<!-- access denied page -->
 		<security:access-denied-handler error-page="/web/403" />
 
 		<security:form-login
 			login-processing-url="/web/j_spring_security_check"
-		    login-page="/web/login" 
+		    login-page="/web" 
 		    default-target-url="/web/pages" 
 			authentication-failure-url="/web/login?error" 
 			username-parameter="username"

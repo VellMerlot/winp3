@@ -72,6 +72,7 @@
                     <span class="copyright">Todos los derechos reservados. 2017 © <a href="http://limolike.es/">Limolike S.L.</a></span>
                 </div>
                 <div class="col-md-4">
+                lalala
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">

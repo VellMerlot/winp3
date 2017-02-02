@@ -35,7 +35,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="../static/img/logo-winp3.png" alt="WinP3">
+        <a class="navbar-brand" href="#"><img src="<c:url value='/static/img/logo-winp3.png' />" alt="WinP3">
         </a>
       </div>
       <div id="navbar3" class="navbar-collapse collapse">

@@ -70,8 +70,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <span class="copyright">Todos los derechos reservados. 2017 © <a href="http://limolike.es/">Limolike S.L.</a></span>
+                    LILO
                 </div>
                 <div class="col-md-4">
+                LELE
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">

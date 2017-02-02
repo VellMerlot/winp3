@@ -12,19 +12,20 @@
     </div>
     <div id="navbar3" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="active"><a href="<c:url value='pages' />"><span class="glyphicon glyphicon-home"></span>  Inicio</a></li>
+        <li><a href="http://limolike.es/#primary">Sobre Winp3</a></li>
+        <li><a href="http://limolike.es/#pg-1813-3">Contacto</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menú <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="<c:url value='/pages/simulator.jsp' />"><span class="glyphicon glyphicon-star"></span> Simulador</a></li>
             <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
+            <sec:authorize access="hasRole('ADMIN')">
+	            <li class="dropdown-header">Administración</li>
+	            <li><a href="<c:url value='/pages/configuration.jsp' />"><span class="glyphicon glyphicon-cog"></span> Configuración</a></li>
+	            <li><a href="<c:url value='/pages/user.jsp' />"><span class="glyphicon glyphicon-user"></span> Gestión de usuarios</a></li>
+	            <li class="divider"></li>
+            </sec:authorize>
             <li><a href="javascript:logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
           </ul>
         </li>

@@ -35,7 +35,7 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+          <h4><span class="glyphicon glyphicon-lock"></span> Entrar</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
           <form role="form" name='loginForm' action="<c:url value='/web/j_spring_security_check' />" method='POST'>
@@ -43,21 +43,21 @@
           <input type="hidden" name="error" id="error" value="${error}" />
           
             <div class="form-group">
-              <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <label for="username"><span class="glyphicon glyphicon-user"></span> Usuario</label>
               <input class="form-control" placeholder="username" name="username" type="text" required autofocus>
             </div>
             <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
               <input class="form-control" placeholder="password" name="password" type="password" required value="">
             </div>
-              <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+              <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-off"></span> Entrar</button>
           </form>
           <br>
           <div class="alert alert-dismissible alert-danger" id="error_msg"></div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>          
-          <p>Forgot <a href="#">Password?</a></p>
+          <button type="submit" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>          
+          <p>¿Olvidó su <a href="#">contraseña?</a></p>
         </div>
       </div>
       

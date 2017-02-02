@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -12,11 +13,15 @@
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   <script src="<c:url value='/static/js/home.js' />"></script>
   
+  <title>Simulador</title>
 </head> 
 
 <body>
 	<%@ include file="navbar.jsp" %>
   	<%@ include file="logout.jsp" %>
-	<h1>SIMULATOR</h1>
+  	
+  	<div class="container">
+		<h1>SIMULATOR</h1>
+	</div>
 </body>
 </html>

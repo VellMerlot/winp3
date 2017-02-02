@@ -12,14 +12,11 @@
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   <script src="<c:url value='/static/js/home.js' />"></script>
   
-  <%@ include file="navbar.jsp" %>
+  
   
 </head> 
 <body>	
-  
-	<c:url value="/web/j_spring_security_logout" var="logoutUrl" />
-	<form action="${logoutUrl}" method="post" id="logoutForm">
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	</form>
+  	<%@ include file="navbar.jsp" %>
+  	<%@ include file="logout.jsp" %>
 </body>
 </html>

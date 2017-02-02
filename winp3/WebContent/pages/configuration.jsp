@@ -12,11 +12,11 @@
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   <script src="<c:url value='/static/js/home.js' />"></script>
   
-  <%@ include file="navbar.jsp" %>
-  
 </head> 
 
 <body>
+  	<%@ include file="navbar.jsp" %>
+  	<%@ include file="logout.jsp" %>
 	<h1>CONFIGURATION</h1>
 </body>
 </html>

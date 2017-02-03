@@ -12,14 +12,12 @@ function loadList() {
 		
 		if (obj && obj.length > 0){
 			 $.each(obj, function() {
-				 var html = '<tr id="'+this['id']+'">';
+				 var html = '<tr id="'+this['id']+'"';
 				 
-				 html += '<td>';
+				 if (this['role'] == 1) html += ' >';
+				 if (this['role'] == 2) html += ' class="info">';
 				 
-				 if (this['role'] == 1) html += '<span class="glyphicon glyphicon-user" style="color: yellow"></span>';
-				 if (this['role'] == 2) html += '<span class="glyphicon glyphicon-user"></span>';
-				 
-				 html += '</td>';
+				 html += '<td></td>';
 				 html += '<td>'+this['userName']+'</td>';
 				 html += '<td>'+this['firstName']+'</td>';
 				 html += '<td>'+this['lastName']+'</td>';
@@ -31,22 +29,20 @@ function loadList() {
 				 if (this['status'] == '2') html += 'Pendiente';
 				 
 				 html += '</td>';
-				 
-				 
-				 
-				 
+
 				 html += '<td class="actions">';
 				 
 				 if (this['status'] == '0'){
-					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>';
-					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span></button>';
+					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span></button>';
+					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-trash"></span></button>';
 				 }
 				 if (this['status'] == '1'){
-					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></button>';
+					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-refresh"></span></button>';
 				 }
 				 if (this['status'] == '2'){
-					 html += '<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span></button>';
+					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-wrench"></span></button>';
 				 }
+				 
 				 /*
 				  * EDITAR
 				  * ELIMINAR

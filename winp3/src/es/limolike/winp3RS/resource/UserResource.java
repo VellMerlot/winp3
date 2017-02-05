@@ -19,7 +19,7 @@ import es.limolike.winp3RS.service.IUserService;
 @Component
 @Path("/user")
 public class UserResource extends Resource implements IUserResource {
-	
+
 	@Autowired
 	private IUserService userService;
 
@@ -37,5 +37,20 @@ public class UserResource extends Resource implements IUserResource {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@GET
+	@Path("/getUser")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUser() {
+		User user = new User();
+		user.setEmail("a@a.com");
+		user.setFirstName("pepito");
+		user.setId(111111);
+		user.setLastName("palotes");
+		user.setRole(1);
+		user.setStatus(1);
+		user.setUserName("pepepe");
+		return user;
 	}
 }

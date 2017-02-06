@@ -8,6 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -43,6 +44,12 @@ public class UserResource extends Resource implements IUserResource {
 	@Path("/getUser")
 	@Produces(MediaType.APPLICATION_JSON)
 	public User getUser() {
+		
+		
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+		String pwd = RandomStringUtils.random( 15, characters );
+		System.out.println( pwd );
+		
 		User user = new User();
 		user.setEmail("a@a.com");
 		user.setFirstName("pepito");

@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	loadList();
 	loadUser();
-	
 });
 
 
@@ -9,7 +8,7 @@ function loadUser() {
 	var success = function(data) {
 		var obj = jQuery.parseJSON(data);
 		console.log(obj);
-};
+	};
 	
 	ajax('', '/winp3/rest/user/getUser/', success);
 }

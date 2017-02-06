@@ -24,7 +24,7 @@
 		<div class="jumbotron">
 		  <h1>Simulador</h1>
 		  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-		  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+		  <p><a class="btn btn-primary btn-lg">Comenzar simulación</a></p>
 		</div>
 		<sec:authorize access="hasRole('ADMIN')">
 			<div class="jumbotron">

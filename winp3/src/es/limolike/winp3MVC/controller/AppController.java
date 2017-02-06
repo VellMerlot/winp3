@@ -42,10 +42,29 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/pages/user" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/pages/users" }, method = RequestMethod.GET)
 	public ModelAndView userPage() {
 
 		ModelAndView model = new ModelAndView();
+		model.setViewName("users");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/users/new" }, method = RequestMethod.GET)
+	public ModelAndView userNewPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("action", "new");
+		model.setViewName("user");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/users/show" }, method = RequestMethod.GET)
+	public ModelAndView userShowPage(@RequestParam(value = "username", required = true) String username) {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("username", username);
+		model.addObject("action", "show");
 		model.setViewName("user");
 		return model;
 	}

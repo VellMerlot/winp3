@@ -4,21 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import es.limolike.winp3.common.AppException;
 import es.limolike.winp3.resource.Resource;
+import es.limolike.winp3.util.StringUtils;
 import es.limolike.winp3RS.domain.User;
 import es.limolike.winp3RS.service.IUserService;
 
 @Component
-@Path("/user")
+@Path("/users")
 public class UserResource extends Resource implements IUserResource {
 
 	@Autowired
@@ -40,15 +41,50 @@ public class UserResource extends Resource implements IUserResource {
 		return null;
 	}
 
+	@POST
+	@Path("/create")
+	public void createUser() {
+		
+	}
+	
+	@POST
+	@Path("/update")
+	public void updateUser() {
+		
+	}
+	
+	@POST
+	@Path("/delete")
+	public void deleteUser() {
+		
+	}
+	
+	
+	/*
+	 * 
+@POST
+@Consumes({MediaType.APPLICATION_JSON})
+@Produces({MediaType.TEXT_HTML})
+@Transactional
+public Response createPodcast(Podcast podcast) {
+	Long id = podcastDao.createPodcast(podcast);
+
+	return Response.status(201).entity(buildNewPodcastResourceURL(id)).build();
+}
+
+
+
+http://www.codingpedia.org/ama/restful-web-services-example-in-java-with-jersey-spring-and-mybatis/
+	 * */
+	
+	
 	@GET
-	@Path("/getUser")
+	@Path("/find")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User getUser() {
+	public User showUser() {
 		
 		
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
-		String pwd = RandomStringUtils.random( 15, characters );
-		System.out.println( pwd );
+		System.out.println( StringUtils.generaPassword() );
 		
 		User user = new User();
 		user.setEmail("a@a.com");

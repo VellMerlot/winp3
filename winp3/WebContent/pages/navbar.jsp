@@ -23,7 +23,7 @@
             <sec:authorize access="hasRole('ADMIN')">
 	            <li class="dropdown-header">Administración</li>
 	            <li><a href="<c:url value='/web/pages/configuration' />"><span class="glyphicon glyphicon-cog"></span> Configuración</a></li>
-	            <li><a href="<c:url value='/web/pages/user' />"><span class="glyphicon glyphicon-user"></span> Gestión de usuarios</a></li>
+	            <li><a href="<c:url value='/web/pages/users' />"><span class="glyphicon glyphicon-user"></span> Gestión de usuarios</a></li>
 	            <li class="divider"></li>
             </sec:authorize>
             <li><a href="javascript:logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></li>

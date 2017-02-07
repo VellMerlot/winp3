@@ -25,5 +25,15 @@ public class ConfigurationService extends AppService implements IConfigurationSe
 		
 		return this.getConfigurationDao().list();
 	}
+	
+	@Override
+	public Configuration get(int configurationId) throws AppException {
+		return this.getConfigurationDao().get(configurationId);
+	}
+
+	@Override
+	public int update(Configuration configuration) throws AppException {
+		return this.getConfigurationDao().update(configuration);
+	}
 
 }

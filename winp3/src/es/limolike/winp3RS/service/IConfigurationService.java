@@ -11,4 +11,6 @@ import es.limolike.winp3RS.domain.Configuration;
 public interface IConfigurationService {
 
 	public List<Configuration> list() throws AppException;
+	public Configuration get(int userId) throws AppException;
+	public int update(Configuration configuration) throws AppException;
 }

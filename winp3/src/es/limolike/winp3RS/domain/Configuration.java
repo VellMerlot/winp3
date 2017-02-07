@@ -5,6 +5,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Configuration {
 	
+	@Override
+	public String toString() {
+		return "Configuration [id=" + id + ", ipc=" + ipc + ", rentaEstimada=" + rentaEstimada
+				+ ", cotizacionAutonomos=" + cotizacionAutonomos + ", edadDependencia=" + edadDependencia
+				+ ", edadRenta=" + edadRenta + ", gastosEntierro=" + gastosEntierro + ", costesHerencia="
+				+ costesHerencia + ", adaptacionVivienda=" + adaptacionVivienda + ", adaptacionVehiculos="
+				+ adaptacionVehiculos + "]";
+	}
 	private int id;
 	private Double ipc;
 	private Double rentaEstimada;

@@ -8,4 +8,6 @@ import es.limolike.winp3RS.domain.Configuration;
 public interface IConfigurationDao {
 
 	public List<Configuration> list() throws AppException;
+	public Configuration get(int configurationId) throws AppException;
+	public int update(Configuration configuration) throws AppException;
 }

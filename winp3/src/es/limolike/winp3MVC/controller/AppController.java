@@ -16,16 +16,23 @@ import es.limolike.winp3.common.AppException;
 import es.limolike.winp3RS.domain.Configuration;
 import es.limolike.winp3RS.domain.User;
 import es.limolike.winp3RS.service.IUserService;
-import es.limolike.winp3RS.service.ConfigurationService;
+import es.limolike.winp3RS.service.IConfigurationService;
 
 @Controller
 public class AppController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private IConfigurationService configurationService;
 
 	public IUserService getUserService() {
 		return userService;
+	}
+	
+	public IConfigurationService getConfigurationService() {
+		return configurationService;
 	}
 
 	@RequestMapping(value = { "/web" }, method = RequestMethod.GET)
@@ -112,17 +119,37 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = { "/pages/configuration" }, method = RequestMethod.GET)
-	public ModelAndView configPage(@RequestParam(value = "username", required = true) String username) {
+	public ModelAndView configPage() {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("formActionUrl", "/winp3/web/pages/configuration/update");
-		model.addObject("username", username);
 		
-		Configuration configuration = new Configuration();
-		configuration.setIpc(new Double(11.5));
-		
+		Configuration configuration = null;
+		try {
+			configuration = configurationService.get(1);
+		} catch (AppException e) {
+			e.printStackTrace();
+		}
 		model.addObject("configurationForm", configuration);
+		model.setViewName("configuration");
 		
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/configuration/update" }, method = RequestMethod.POST)
+	public ModelAndView updateConfigPage(@ModelAttribute("configurationForm") Configuration configuration) {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("formActionUrl", "/winp3/web/pages/configuration/update");
+		
+		System.out.println(configuration);
+		
+		try {
+			int result = configurationService.update(configuration);
+		} catch (AppException e) {
+			e.printStackTrace();
+		}
+		model.addObject("configurationForm", configuration);
 		model.setViewName("configuration");
 		
 		return model;

@@ -1,6 +1,8 @@
+<%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 
@@ -19,8 +21,18 @@
 	<div class="container">
 		<div class="text-center">
 			<h1>Configuración de constantes</h1>
+			<div class="alert alert-dismissible alert-success" id="updatedAlertOK">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>OK!</strong> Se han guardado las configuración de constantes correctamente.
+			</div>
+			<div class="alert alert-dismissible alert-danger" id="updatedAlertError">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>¡Atención!</strong> Ha ocurrido un error al guardar la configuración de constantes.
+			</div>
 		</div>
-		<form class="form-horizontal" role="form">
+		<form:form class="form-horizontal" method="post" modelAttribute="configurationForm" action="${formActionUrl}">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<input type="text" name="id" value="${configurationForm.id}" />
 			<div class="row">
 				<fieldset>
 					<legend>Parámetros generales</legend>
@@ -28,8 +40,8 @@
 						<div class="form-group">
 							<label for="inputEmail" class="col-md-4 control-label">IPC:</label>
 							<div class="col-md-8 input-group">
-								<input type="text" class="form-control" id="ipc"
-									placeholder="" value=""><span class="input-group-addon">&#37;</span>
+								<input type="text" class="form-control" name="ipc"
+									placeholder="" value="${configurationForm.ipc}"><span class="input-group-addon">&#37;</span>
 							</div>
 						</div>
 					</div>
@@ -38,8 +50,8 @@
 							<label for="inputPassword" class="col-md-4 control-label">Rentabilidad
 								Estimada:</label>
 							<div class="col-md-8 input-group">
-								<input type="password" class="form-control"
-									id="rentaEstimada" placeholder=""><span
+								<input type="text" class="form-control"
+									name="rentaEstimada" placeholder="" value="${configurationForm.rentaEstimada}"><span
 									class="input-group-addon">&#37;</span>
 							</div>
 						</div>
@@ -49,8 +61,8 @@
 							<label for="inputLabel3" class="col-md-4 control-label">Tipo
 								cotización Autónomos:</label>
 							<div class="col-md-8 input-group">
-								<input type="text" class="form-control" id="cotizacionAutonomos"
-									placeholder=""><span class="input-group-addon">&#37;</span>
+								<input type="text" class="form-control" name="cotizacionAutonomos"
+									placeholder="" value="${configurationForm.cotizacionAutonomos}"><span class="input-group-addon">&#37;</span>
 							</div>
 						</div>
 					</div>
@@ -59,8 +71,8 @@
 							<label for="inputLabel4" class="col-md-4 control-label">Edad
 								Dependencia:</label>
 							<div class="col-md-8 input-group">
-								<input type="text" class="form-control" id="edadDependencia"
-									placeholder=""><span class="input-group-addon">años</span>
+								<input type="text" class="form-control" name="edadDependencia"
+									placeholder="" value="${configurationForm.edadDependencia}"><span class="input-group-addon">años</span>
 							</div>
 						</div>
 					</div>
@@ -69,8 +81,8 @@
 							<label for="input5" class="col-md-4 control-label">Edad
 								Renta Pias:</label>
 							<div class="col-md-8 input-group">
-								<input type="text" class="form-control" id="edadRenta"
-									placeholder=""><span class="input-group-addon">años</span>
+								<input type="text" class="form-control" name="edadRenta"
+									placeholder="" value="${configurationForm.edadRenta}"><span class="input-group-addon">años</span>
 							</div>
 						</div>
 					</div>
@@ -82,8 +94,8 @@
 							<label for="input5" class="col-md-4 control-label">Gastos
 								de entierro:</label>
 							<div class="col-md-8 input-group">
-								<input type="text" class="form-control" id="gastosEntierro"
-									placeholder=""><span class="input-group-addon">&#8364;</span>
+								<input type="text" class="form-control" name="gastosEntierro"
+									placeholder="" value="${configurationForm.gastosEntierro}"><span class="input-group-addon">&#8364;</span>
 							</div>
 						</div>
 					</div>
@@ -92,8 +104,8 @@
 							<label for="input5" class="col-md-4 control-label">Costes
 								de aceptación Herencia:</label>
 							<div class="col-md-8 input-group">
-								<input type="text" class="form-control" id="costesHerencia"
-									placeholder=""><span class="input-group-addon">&#8364;</span>
+								<input type="text" class="form-control" name="costesHerencia"
+									placeholder="" value="${configurationForm.costesHerencia}"><span class="input-group-addon">&#8364;</span>
 							</div>
 						</div>
 					</div>
@@ -106,8 +118,8 @@
 						<label for="input6" class="col-md-4 control-label">Adaptación
 							Vivienda:</label>
 						<div class="col-md-8 input-group">
-							<input type="text" class="form-control" id="adaptacionVivienda"
-								placeholder=""><span class="input-group-addon">&#8364;</span>
+							<input type="text" class="form-control" name="adaptacionVivienda"
+								placeholder="" value="${configurationForm.adaptacionVivienda}"><span class="input-group-addon">&#8364;</span>
 						</div>
 					</div>
 				</div>
@@ -116,24 +128,23 @@
 						<label for="input7" class="col-md-4 control-label">Adaptación
 							Vehículo y otros:</label>
 						<div class="col-md-8 input-group">
-							<input type="text" class="form-control" id="adaptacionVehiculos"
-								placeholder=""><span class="input-group-addon">&#8364;</span>
+							<input type="text" class="form-control" name="adaptacionVehiculos"
+								placeholder="" value="${configurationForm.adaptacionVehiculos}"><span class="input-group-addon">&#8364;</span>
 						</div>
 					</div>
 				</div>
 				<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 			</div>
+			<hr>
 			<div class="row">
 				<div class="col-xs-4"></div>
 				<div class="col-xs-4 alignCenter" >
-					<a href="#" class="btn btn-primary "> <span class="glyphicon glyphicon-floppy-disk"></span> Guardar</a>
+					<button type="submit" class="btn btn-primary "> <span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 				</div>
 				<div class="col-xs-4"></div>
 			</div>
-		</form>
+		</form:form>
 
-	</div>
-	</form>
 	</div>
 	<!-- /.container -->
 	

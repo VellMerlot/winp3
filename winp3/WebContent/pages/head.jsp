@@ -7,5 +7,6 @@
 <link rel="stylesheet" href="<c:url value='/static/css/bootstrap.min.css'/>">  
 <link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
 <link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
 <link rel="shortcut icon" href="<c:url value='/static/img/favicon.ico' />" type="image/x-icon" />

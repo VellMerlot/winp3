@@ -53,9 +53,6 @@
 			</div>
 			<!--/row-->
 			<hr>
-			<footer>
-			<p>footer.label.copyright</p>
-			</footer>
 		</div>
 				
 		

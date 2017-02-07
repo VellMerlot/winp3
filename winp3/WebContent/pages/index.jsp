@@ -16,8 +16,8 @@
         <div class="intro-text">
             <div class="intro-heading">Tu futuro.</div>
             <div class="intro-lead-in">Limolike y WinP3, protegen, no solo personas y patrimonios, sino también emociones y estilos de vida.</div>
-            <a id="knowBtn" href="http://limolike.es/#primary" class="page-scroll btn btn-primary_main btn-lg" style="    font: 42px/1.1 "Raleway", sans-serif;">Quiero saber más</a>
-            <a id="myBtn" href="#" class="page-scroll btn btn-primary_main btn-lg">Login</a>
+            <a id="knowBtn" href="http://limolike.es/#primary" class="page-scroll btn btn-primary_main" >Quiero saber más</a>
+            <a id="myBtn" href="#" class="page-scroll btn btn-primary_main">Entrar</a>
         </div>
     </div>
 </header>

@@ -16,4 +16,5 @@ public interface IUserResource {
 	public void updateUser();
 	public void deleteUser();
 	public User showUser();
+	public String newPassword();
 }

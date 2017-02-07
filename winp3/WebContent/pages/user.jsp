@@ -29,66 +29,48 @@
                 <fieldset>
                   <legend>Datos de usuario</legend>
                   <div class="form-group">
+                    <label for="userName" class="col-lg-2 control-label">Nombre usuario</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="userName" name="userName" placeholder="" value="${userForm.userName}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                      <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="${userForm.password}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="firstName" class="col-lg-2 control-label">Nombre</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="${userForm.firstName}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName" class="col-lg-2 control-label">Apellidos</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="${userForm.lastName}">
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label for="email" class="col-lg-2 control-label">Email</label>
                     <div class="col-lg-10">
                       <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="${userForm.email}">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                    <label for="role" class="col-lg-2 control-label">Tipo de usuario</label>
                     <div class="col-lg-10">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Checkbox
-                        </label>
-                      </div>
+                      <input type="text" readonly class="form-control" id="role" name="role" value="${userForm.role}">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                    <label for="status" class="col-lg-2 control-label">Estado</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="textArea"></textarea>
-                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                      <input type="text" readonly class="form-control" id="status" name="status" value="${userForm.status}">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-lg-2 control-label">Radios</label>
-                    <div class="col-lg-10">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                          Option one is this
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          Option two can be something else
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Selects</label>
-                    <div class="col-lg-10">
-                      <select class="form-control" id="select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                      <br>
-                      <select multiple="" class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                  </div>
+                  
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                       <button type="reset" class="btn btn-default">Cancela</button>

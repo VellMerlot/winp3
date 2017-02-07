@@ -8,4 +8,6 @@ import es.limolike.winp3RS.domain.User;
 public interface IUserDao {
 
 	public List<User> list() throws AppException;
+
+	public User get(int userId) throws AppException;
 }

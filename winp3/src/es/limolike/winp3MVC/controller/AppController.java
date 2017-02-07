@@ -5,10 +5,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import es.limolike.winp3RS.domain.User;
 
 @Controller
 public class AppController {
@@ -42,6 +45,14 @@ public class AppController {
 		return model;
 	}
 	
+	@RequestMapping(value = { "/pages/profile" }, method = RequestMethod.GET)
+	public ModelAndView profilePage() {
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("profile");
+		return model;
+	}
+	
 	@RequestMapping(value = { "/pages/users" }, method = RequestMethod.GET)
 	public ModelAndView userPage() {
 
@@ -50,21 +61,37 @@ public class AppController {
 		return model;
 	}
 	
+	@RequestMapping(value = { "/pages/users/create" }, method = RequestMethod.POST)
+	public ModelAndView userNewPage2(@ModelAttribute("userForm") User user) {
+
+		ModelAndView model = new ModelAndView();
+		//model.addObject("action", "new");
+		model.setViewName("users");
+		return model;
+	}
+	
 	@RequestMapping(value = { "/pages/users/new" }, method = RequestMethod.GET)
 	public ModelAndView userNewPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("action", "new");
+		model.addObject("formActionUrl", "/winp3/web/pages/users/create");
+		model.addObject("userForm", new User());
 		model.setViewName("user");
 		return model;
 	}
-	
+		
 	@RequestMapping(value = { "/pages/users/show" }, method = RequestMethod.GET)
 	public ModelAndView userShowPage(@RequestParam(value = "username", required = true) String username) {
 
 		ModelAndView model = new ModelAndView();
+		model.addObject("formActionUrl", "/winp3/web/pages/users/update");
 		model.addObject("username", username);
-		model.addObject("action", "show");
+		
+		User user = new User();
+		user.setFirstName("mkyong123");
+		user.setEmail("test@gmail.com");
+		model.addObject("userForm", user);
+		
 		model.setViewName("user");
 		return model;
 	}
@@ -76,7 +103,9 @@ public class AppController {
 		model.setViewName("configuration");
 		return model;
 	}
-			
+	
+	/*http://www.mkyong.com/spring-mvc/spring-mvc-form-handling-example/*/
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {

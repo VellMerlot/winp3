@@ -3,15 +3,11 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
-  <link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
+  <%@ include file="head.jsp" %>
   
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   <script src="<c:url value='/static/js/home.js' />"></script>
-  
   
   <title>HTTP Status 403 - Acceso denegado</title>
 </head> 
@@ -49,5 +45,7 @@
  	<a href="<c:url value='/' />">Inicio</a>
  	
  	</div>
+ 	
+ 	<%@ include file="footer.jsp" %>
 </body>
 </html>

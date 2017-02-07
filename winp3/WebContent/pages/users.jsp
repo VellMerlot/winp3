@@ -6,26 +6,13 @@
 
 <html>
 	<head>
-	    <meta charset="UTF-8">
-	    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<link rel="icon" href="<c:url value='/img/favicon.ico' />">
-	
+		<%@ include file="head.jsp" %>
+		
     	<title>Gestión de Usuarios</title>
-
-	 	<!-- Bootstrap core CSS -->
-    	<link href="<c:url value='/static/css/bootstrap.min.css'/>" rel="stylesheet">
-	    
-	    <!-- Custom styles for this template -->
-    	<link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
-    	<link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
     
 	</head>
 
-  <body> 
+	<body> 
   
   	<%@ include file="navbar.jsp" %>
   	<%@ include file="logout.jsp" %>
@@ -74,9 +61,7 @@
 		
 	    
 	    <!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="<c:url value='/static/js/jquery.min.js' />"></script>
-		<script type="text/javascript" src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-		<script type="text/javascript" src="<c:url value='/static/js/home.js' />"></script>
+	    <%@ include file="footer.jsp" %>
 		<script type="text/javascript" src="<c:url value='/static/js/user.js' />"></script>
 				
 	</body>

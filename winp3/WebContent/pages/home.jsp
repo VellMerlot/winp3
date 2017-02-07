@@ -4,11 +4,9 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
-  <link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
-  
+
+	<%@ include file="head.jsp" %>
+
   <script src="<c:url value='/static/js/jquery.min.js' />"></script>
   <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
   <script src="<c:url value='/static/js/home.js' />"></script>
@@ -30,14 +28,16 @@
 			<div class="jumbotron">
 			  <h1>Configuración</h1>
 			  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-			  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+			  <p><a href="<c:url value='/web/pages/configuration' />" class="btn btn-primary btn-lg">Learn more</a></p>
 			</div>
 			<div class="jumbotron">
 			  <h1>Gestión de usuario</h1>
 			  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-			  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+			  <p><a href="<c:url value='/web/pages/users' />" class="btn btn-primary btn-lg">Learn more</a></p>
 			</div>
 		</sec:authorize>
+		
+		<%@ include file="footer.jsp" %>
   	</div>
 </body>
 </html>

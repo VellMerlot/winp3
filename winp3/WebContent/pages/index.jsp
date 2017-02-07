@@ -1,17 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="<c:url value='/static/css/bootstrap-yeti.min.css' />">
-  <link rel="stylesheet" href="<c:url value='/static/css/agency.css' />">
-  
-  <script src="<c:url value='/static/js/jquery.min.js' />"></script>
-  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-  <script src="<c:url value='/static/js/login.js' />"></script>
-
-</head>
+	<head>
+		<%@ include file="head.jsp" %>
+		
+	 	<link rel="stylesheet" href="<c:url value='/static/css/agency.css' />">
+	 	
+	 	<title>WinP3</title>
+	 	
+	</head>
 <body>
 
 <header>
@@ -56,8 +53,7 @@
           <div class="alert alert-dismissible alert-danger" id="error_msg"></div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>          
-          <p>¿Olvidó su <a href="#">contraseña?</a></p>
+        	<p class="text-info">Si olvidó su contraseña, contacte con un administrador.</p>       
         </div>
       </div>
       
@@ -65,26 +61,7 @@
   </div> 
 </div>
 
-<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Todos los derechos reservados. 2017 © <a href="http://limolike.es/">Limolike S.L.</a></span>
-                </div>
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
+	<%@ include file="footer.jsp" %>
+	<script src="<c:url value='/static/js/login.js' />"></script>
 </body>
 </html>

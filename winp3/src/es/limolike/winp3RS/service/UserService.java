@@ -25,4 +25,8 @@ public class UserService extends AppService implements IUserService {
 		return this.getUserDao().list();
 	}
 	
+	@Override
+	public User get(int userId) throws AppException {
+		return this.getUserDao().get(userId);
+	}
 }

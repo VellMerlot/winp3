@@ -84,6 +84,13 @@ public Response createPodcast(Podcast podcast) {
 http://www.codingpedia.org/ama/restful-web-services-example-in-java-with-jersey-spring-and-mybatis/
 	 * */
 	
+	@GET
+	@Path("/password")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String newPassword() {
+		return StringUtils.generaPassword();
+		
+	}
 	
 	@GET
 	@Path("/find")

@@ -28,4 +28,20 @@ public class UserDao extends Dao implements IUserDao {
 			throw new AppException("ERROR list");
 		}
 	}
+
+	@Override
+	public User get(int userId) throws AppException {
+		try {
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("ID", userId);
+			
+			User values = (User) queryObject("SELECT u.id, u.user_name, u.password, u.first_name, u.last_name, u.email, u.status, "
+					+ " up.user_profile_id as role FROM winp3_sys.app_user u, winp3_sys.app_user_user_profile up where u.id = up.user_id and u.id = :ID", params, User.class);
+						
+			return values;
+		}
+		catch (Exception e) {
+			throw new AppException("ERROR list");
+		}
+	}
 }

@@ -1,5 +1,6 @@
 package es.limolike.winp3MVC.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,10 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import es.limolike.winp3.common.AppException;
 import es.limolike.winp3RS.domain.User;
+import es.limolike.winp3RS.service.IUserService;
 
 @Controller
 public class AppController {
+	
+	@Autowired
+	private IUserService userService;
+
+	public IUserService getUserService() {
+		return userService;
+	}
 
 	@RequestMapping(value = { "/web" }, method = RequestMethod.GET)
 	public ModelAndView indexPage() {
@@ -71,9 +81,8 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = { "/pages/users/new" }, method = RequestMethod.GET)
-	public ModelAndView userNewPage() {
+	public ModelAndView userNewPage(ModelAndView model) {
 
-		ModelAndView model = new ModelAndView();
 		model.addObject("formActionUrl", "/winp3/web/pages/users/create");
 		model.addObject("userForm", new User());
 		model.setViewName("user");
@@ -87,9 +96,13 @@ public class AppController {
 		model.addObject("formActionUrl", "/winp3/web/pages/users/update");
 		model.addObject("username", username);
 		
-		User user = new User();
-		user.setFirstName("mkyong123");
-		user.setEmail("test@gmail.com");
+		User user = null;
+		try {
+			user = userService.get(1);
+		} catch (AppException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addObject("userForm", user);
 		
 		model.setViewName("user");

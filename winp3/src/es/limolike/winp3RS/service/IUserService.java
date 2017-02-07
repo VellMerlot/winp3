@@ -12,4 +12,5 @@ public interface IUserService {
 
 
 	public List<User> list() throws AppException;
+	public User get(int userId) throws AppException;
 }

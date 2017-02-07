@@ -56,8 +56,7 @@
           <div class="alert alert-dismissible alert-danger" id="error_msg"></div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>          
-          <p>¿Olvidó su <a href="#">contraseña?</a></p>
+        	<p class="text-info">Si olvidó su contraseña, contacte con un administrador.</p>       
         </div>
       </div>
       

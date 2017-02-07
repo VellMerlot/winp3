@@ -43,14 +43,14 @@ function loadList() {
 				 html += '<td class="actions">';
 				 
 				 if (this['status'] == '0'){
-					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span></button>';
+					 html += '<form name="form" action="/winp3/web/pages/users/show" method="get">';
+					 html += '<input type="hidden" name="username" value="'+this['userName']+'" />';
+					 html += '<button type="submit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span></button>';
+					 html += '</form>';
 					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-trash"></span></button>';
 				 }
 				 if (this['status'] == '1'){
 					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-refresh"></span></button>';
-				 }
-				 if (this['status'] == '2'){
-					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-wrench"></span></button>';
 				 }
 				 
 				 /*

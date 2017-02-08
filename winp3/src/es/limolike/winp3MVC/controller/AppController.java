@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.limolike.winp3.common.AppException;
+import es.limolike.winp3.common.Result;
 import es.limolike.winp3RS.domain.Configuration;
 import es.limolike.winp3RS.domain.User;
 import es.limolike.winp3RS.service.IUserService;
@@ -81,10 +82,40 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = { "/pages/users/create" }, method = RequestMethod.POST)
-	public ModelAndView userNewPage2(@ModelAttribute("userForm") User user) {
+	public ModelAndView userCreatePage(@ModelAttribute("userForm") User user) {
 
 		ModelAndView model = new ModelAndView();
-		//model.addObject("action", "new");
+		try {
+			Result r = userService.saveOrUpdate(user);
+			
+			if (r == Result.OK)
+				model.addObject("message_info", "El usuario ha sido creado correctamente.");
+			else
+				model.addObject("message_error", "Ha ocurrido un error al crear el usuario.");
+		} catch (AppException e) {
+			model.addObject("message_error", "Ha ocurrido un error al crear el usuario.");
+			e.printStackTrace();
+		}
+		model.setViewName("users");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/users/update" }, method = RequestMethod.POST)
+	public ModelAndView userUpdatePage(@ModelAttribute("userForm") User user) {
+
+		ModelAndView model = new ModelAndView();
+		try {
+			Result r = userService.saveOrUpdate(user);
+			
+			if (r == Result.OK)
+				model.addObject("message_info", "El usuario ha sido actualizado correctamente.");
+			else
+				model.addObject("message_error", "Ha ocurrido un error al actualizar el usuario.");
+		} catch (AppException e) {
+			model.addObject("message_error", "Ha ocurrido un error al actualizar el usuario.");
+			e.printStackTrace();
+		}
+		
 		model.setViewName("users");
 		return model;
 	}
@@ -99,15 +130,14 @@ public class AppController {
 	}
 		
 	@RequestMapping(value = { "/pages/users/show" }, method = RequestMethod.GET)
-	public ModelAndView userShowPage(@RequestParam(value = "username", required = true) String username) {
+	public ModelAndView userShowPage(@RequestParam(value = "user", required = true) Integer userId) {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("formActionUrl", "/winp3/web/pages/users/update");
-		model.addObject("username", username);
 		
 		User user = null;
 		try {
-			user = userService.get(1);
+			user = userService.get(userId);
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

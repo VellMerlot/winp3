@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import es.limolike.winp3.common.AppException;
 import es.limolike.winp3.data.Dao;
@@ -50,7 +51,7 @@ public class ConfigurationDao extends Dao implements IConfigurationDao {
 		}
 	}
 
-	@Override
+	@Transactional
 	public int update(Configuration configuration) throws AppException {
 		try {
 			Map<String, Object> params = new HashMap<String, Object>();

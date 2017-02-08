@@ -26,9 +26,33 @@
 		
 			<div class="page-header">
 	        	<h1>Listado de usuarios</h1>
+	        	
+	        	
 	      	</div>
 	      	
-			<div class="row" style="padding-top: 5%;">
+	      	<c:if test="${not empty message_error}">
+				<div class="alert alert-dismissible alert-danger" id="updatedAlertError">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>¡Atención! </strong>${message_error}
+				</div>
+			</c:if>
+			<c:if test="${not empty message_info}">
+				<div class="alert alert-dismissible alert-success" id="updatedAlertOK">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>OK! </strong>${message_info}
+				</div>
+			</c:if>
+	      				
+			
+	      	<div class="row" style="padding-top: 2%; text-align: right;">
+	      		<div class="col-md-12">
+	      	<form name="form" action="<c:url value='/web/pages/users/new' />" method="get">
+		        	<button type="submit" class="btn btn-primary">Nuevo usuario</button>
+		        </form>	
+	      	</div>
+	      	</div>
+			<div class="row" style="padding-top: 2%;">
+				
 				<div class="col-md-12">
 		          <table class="table table-striped table-hover" id="tabla">
 		            <thead>
@@ -47,9 +71,7 @@
 		            </tbody>
 		          </table>
 		        </div>
-		        <form name="form" action="<c:url value='/web/pages/users/new' />" method="get">
-		        	<button type="submit" class="btn btn-primary">Nuevo usuario</button>
-		        </form>				
+		        			
 			</div>
 			<!--/row-->
 			<hr>
@@ -59,7 +81,7 @@
 	    
 	    <!-- Placed at the end of the document so the pages load faster -->
 	    <%@ include file="footer.jsp" %>
-		<script type="text/javascript" src="<c:url value='/static/js/user.js' />"></script>
+		<script type="text/javascript" src="<c:url value='/static/js/users.js' />"></script>
 				
 	</body>
 </html>

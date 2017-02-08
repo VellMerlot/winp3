@@ -39,9 +39,6 @@
 	</div>
 </footer>
 
-<script type="text/javascript"
-	src="<c:url value='/static/js/jquery.min.js' />"></script>
-<script type="text/javascript"
-	src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-<script type="text/javascript"
-	src="<c:url value='/static/js/home.js' />"></script>
+<script type="text/javascript" src="<c:url value='/static/js/jquery.min.js' />"></script>
+<script type="text/javascript" src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+<script type="text/javascript" src="<c:url value='/static/js/home.js' />"></script>

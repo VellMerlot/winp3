@@ -89,7 +89,6 @@ http://www.codingpedia.org/ama/restful-web-services-example-in-java-with-jersey-
 	@Produces(MediaType.APPLICATION_JSON)
 	public String newPassword() {
 		return StringUtils.generaPassword();
-		
 	}
 	
 	@GET

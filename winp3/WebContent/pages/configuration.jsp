@@ -21,14 +21,20 @@
 	<div class="container">
 		<div class="text-center">
 			<h1>Configuración de constantes</h1>
-			<div class="alert alert-dismissible alert-success" id="updatedAlertOK">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>OK!</strong> Se han guardado las configuración de constantes correctamente.
-			</div>
-			<div class="alert alert-dismissible alert-danger" id="updatedAlertError">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>¡Atención!</strong> Ha ocurrido un error al guardar la configuración de constantes.
-			</div>
+			
+			<c:if test="${not empty message_info}">
+				<div class="alert alert-dismissible alert-success" id="updatedAlertOK">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>OK!</strong> Se han guardado las configuración de constantes correctamente.
+				</div>
+			</c:if>
+			<c:if test="${not empty message_error}">
+				<div class="alert alert-dismissible alert-danger" id="updatedAlertError">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>¡Atención!</strong> Ha ocurrido un error al guardar la configuración de constantes.
+				</div>
+			</c:if>
+			
 		</div>
 		<form:form class="form-horizontal" method="post" modelAttribute="configurationForm" action="${formActionUrl}">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

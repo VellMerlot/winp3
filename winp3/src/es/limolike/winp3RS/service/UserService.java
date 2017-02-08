@@ -35,7 +35,7 @@ public class UserService extends AppService implements IUserService {
 		return this.getUserDao().saveOrUpdate(user);
 	}
 	
-	public Result updateStatus(User user) throws AppException {
-		return this.getUserDao().updateStatus(user);
+	public Result updateStatus(Integer userId, Integer status) throws AppException {
+		return this.getUserDao().updateStatus(userId, status);
 	}
 }

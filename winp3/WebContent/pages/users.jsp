@@ -63,7 +63,6 @@
 						<th>Apellido</th>
 						<th>Email</th>
 						<th>Estado</th>
-						
 						<th>Acciones</th>
 		              </tr>
 		            </thead>

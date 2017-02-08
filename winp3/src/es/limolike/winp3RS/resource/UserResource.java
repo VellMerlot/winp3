@@ -45,27 +45,6 @@ public class UserResource extends Resource implements IUserResource {
 		}
 		return null;
 	}
-
-	@POST
-	@Path("/create2")
-	@Consumes("application/json")
-	public Response createUser(User user) {
-		String result = "Track saved : " + user;
-		return Response.status(201).entity(result).build();
-	}
-	
-	@POST
-	@Path("/update")
-	public void updateUser() {
-		
-	}
-	
-	@POST
-	@Path("/delete")
-	public void deleteUser() {
-		
-	}
-	
 	
 	/*
 	 * 
@@ -89,24 +68,5 @@ http://www.codingpedia.org/ama/restful-web-services-example-in-java-with-jersey-
 	@Produces(MediaType.APPLICATION_JSON)
 	public String newPassword() {
 		return StringUtils.generaPassword();
-	}
-	
-	@GET
-	@Path("/find")
-	@Produces(MediaType.APPLICATION_JSON)
-	public User showUser() {
-		
-		
-		System.out.println( StringUtils.generaPassword() );
-		
-		User user = new User();
-		user.setEmail("a@a.com");
-		user.setFirstName("pepito");
-		user.setId(111111);
-		user.setLastName("palotes");
-		user.setRole(1);
-		user.setStatus(1);
-		user.setUserName("pepepe");
-		return user;
 	}
 }

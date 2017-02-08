@@ -12,9 +12,5 @@ public interface IUserResource {
 
 	public List<User> list();
 	
-	public Response createUser(User user);
-	public void updateUser();
-	public void deleteUser();
-	public User showUser();
 	public String newPassword();
 }

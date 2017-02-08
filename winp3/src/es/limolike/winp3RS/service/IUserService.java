@@ -15,5 +15,5 @@ public interface IUserService {
 	public List<User> list() throws AppException;
 	public User get(int userId) throws AppException;
 	public Result saveOrUpdate(User user) throws AppException;
-	public Result updateStatus(User user) throws AppException;
+	public Result updateStatus(Integer userId, Integer status) throws AppException;
 }

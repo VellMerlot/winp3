@@ -81,7 +81,7 @@ public class UserDao extends Dao implements IUserDao {
 				User u = (User) queryObject(sql_query, params, User.class);
 				
 				if (u.getId() != 0){
-					params.put("id", user.getId());
+					params.put("user_id", u.getId());
 					params.put("user_profile_id", user.getRole());
 					sql_query = "INSERT INTO winp3_sys.app_user_user_profile (user_id, user_profile_id) VALUES (:user_id, :user_profile_id)";
 					result = execute(sql_query, params);
@@ -99,7 +99,7 @@ public class UserDao extends Dao implements IUserDao {
 	}
 	
 	@Transactional
-	public Result updateStatus(User user) throws AppException {
+	public Result updateStatus(Integer userId, Integer status) throws AppException {
 
 		try {
 			Map<String,Object> params = new HashMap<String,Object>();
@@ -107,8 +107,8 @@ public class UserDao extends Dao implements IUserDao {
 			String sql_query = "";
 			
 			sql_query = "UPDATE winp3_sys.app_user SET status = :status WHERE id = :id";
-			params.put("id", user.getId());
-			params.put("status", user.getStatus());
+			params.put("id", userId);
+			params.put("status", status);
 			
 			int result = execute(sql_query, params);
 

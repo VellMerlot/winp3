@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	loadList();
+	$(".alert-success").delay(3000).fadeOut("slow", function () { $(this).remove(); });
 });
 
 function loadUser() {
@@ -22,8 +23,11 @@ function loadList() {
 			 $.each(obj, function() {
 				 var html = '<tr id="'+this['id']+'"';
 				 
-				 if (this['role'] == 1) html += ' >';
-				 if (this['role'] == 2) html += ' class="info">';
+				 if (this['role'] == 1 && this['status'] == 0) html += ' >';
+				 if (this['role'] == 1 && this['status'] == 1) html += ' class="danger">';
+				 
+				 if (this['role'] == 2 && this['status'] == 0) html += ' class="info">';
+				 if (this['role'] == 2 && this['status'] == 1) html += ' class="danger">';
 				 
 				 html += '<td></td>';
 				 html += '<td>'+this['userName']+'</td>';
@@ -34,21 +38,17 @@ function loadList() {
 				 
 				 if (this['status'] == '0') html += 'Activo';
 				 if (this['status'] == '1') html += 'Eliminado';
-				 if (this['status'] == '2') html += 'Pendiente';
 				 
 				 html += '</td>';
 
 				 html += '<td class="actions">';
 				 
 				 if (this['status'] == '0'){
-					 html += '<form name="form" action="/winp3/web/pages/users/show" method="get">';
-					 html += '<input type="hidden" name="user" value="'+this['id']+'" />';
-					 html += '<button type="submit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span></button>';
-					 html += '</form>';
-					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-trash"></span></button>';
+					 html += '<a href="/winp3/web/pages/users/show?user='+this['id']+'" class="btn btn-xs btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>';
+					 html += '<a href="/winp3/web/pages/users/delete?user='+this['id']+'" class="btn btn-xs btn-info" role="button"><span class="glyphicon glyphicon-trash"></span></a>';
 				 }
 				 if (this['status'] == '1'){
-					 html += '<button type="button" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-refresh"></span></button>';
+					 html += '<a href="/winp3/web/pages/users/activate?user='+this['id']+'" class="btn btn-xs btn-info" role="button"><span class="glyphicon glyphicon-refresh"></span></a>';
 				 }
 				 
 				 /*

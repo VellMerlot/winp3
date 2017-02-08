@@ -33,13 +33,24 @@
                   <div class="form-group">
                     <label for="userName" class="col-lg-2 control-label">Nombre usuario</label>
                     <div class="col-lg-4">
-                      <input type="text" class="form-control" id="userName" name="userName" placeholder="" value="${userForm.userName}">
+                      <c:if test="${userForm.id eq 0}">
+                      	<input type="text" class="form-control" id="userName" name="userName" placeholder="" value="${userForm.userName}">
+                      </c:if>
+                      <c:if test="${userForm.id ne 0}">
+                      	<input type="hidden" class="form-control" id="userName" name="userName" value="${userForm.userName}">
+                      	<span disabled class="form-control">${userForm.userName}</span>
+                      </c:if>
+                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="password" class="col-lg-2 control-label">Password</label>
                     <div class="col-lg-4">
-                      <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="${userForm.password}">
+                      <input type="hidden" id="password" name="password" placeholder="Password" value="${userForm.password}">
+                      <span disabled class="form-control" id="password_span">
+                      	<c:if test="${userForm.id eq 0}"></c:if>
+                      	<c:if test="${userForm.id ne 0}">********</c:if>
+                      </span>
                     </div>
                     <div class="col-lg-4">
                       <button type="button" id="new_password" class="btn btn-default">Obtener password</button>
@@ -66,9 +77,12 @@
                   <div class="form-group">
                     <label for="role" class="col-lg-2 control-label">Tipo de usuario</label>
                     <div class="col-lg-10">
-                      <input type="hidden" readonly class="form-control" id="role" name="role" value="${userForm.role}">
+                      <input type="hidden" class="form-control" id="role" name="role" value="${userForm.role}">
                       <c:if test="${userForm.id ne 0}">
-                      	<span>${userForm.role}</span>
+                      	<span disabled class="form-control">
+                      		<c:if test="${userForm.role eq 1}">USUARIO</c:if>
+                      		<c:if test="${userForm.role eq 2}">ADMIN</c:if>
+                      	</span>
                       </c:if>
                       <c:if test="${userForm.id eq 0}">
                       	<select id="role_list"  class="form-control">
@@ -82,7 +96,7 @@
                                     
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button type="reset" class="btn btn-default">Cancela</button>
+                      <a href="<c:url value='/web/pages/users' />" class="btn btn-default" role="button">Cancela</a>
                       <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                   </div>

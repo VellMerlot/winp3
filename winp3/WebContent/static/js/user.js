@@ -6,6 +6,7 @@ $(document).ready(function() {
 	$("#btn_password").click(function(){    	
 		var psd = $('#inputPassword').html();
 		$('#password').val(psd);
+		$('#password_span').html("********");
     });
 	
 	

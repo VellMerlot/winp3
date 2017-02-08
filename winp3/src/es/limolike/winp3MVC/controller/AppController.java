@@ -65,14 +65,6 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/pages/profile" }, method = RequestMethod.GET)
-	public ModelAndView profilePage() {
-
-		ModelAndView model = new ModelAndView();
-		model.setViewName("profile");
-		return model;
-	}
-	
 	@RequestMapping(value = { "/pages/users" }, method = RequestMethod.GET)
 	public ModelAndView userPage() {
 
@@ -139,12 +131,51 @@ public class AppController {
 		try {
 			user = userService.get(userId);
 		} catch (AppException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addObject("userForm", user);
 		
 		model.setViewName("user");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/users/delete" }, method = RequestMethod.GET)
+	public ModelAndView userDeletePage(@RequestParam(value = "user", required = true) Integer userId) {
+
+		ModelAndView model = new ModelAndView();
+		try {
+			Result r = userService.updateStatus(userId, 1);
+			
+			if (r == Result.OK)
+				model.addObject("message_info", "El usuario ha sido eliminado correctamente.");
+			else
+				model.addObject("message_error", "Ha ocurrido un error al eliminar el usuario.");
+		} catch (AppException e) {
+			model.addObject("message_error", "Ha ocurrido un error al eliminar el usuario.");
+			e.printStackTrace();
+		}
+		
+		model.setViewName("users");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/users/activate" }, method = RequestMethod.GET)
+	public ModelAndView userActivatePage(@RequestParam(value = "user", required = true) Integer userId) {
+
+		ModelAndView model = new ModelAndView();
+		try {
+			Result r = userService.updateStatus(userId, 0);
+			
+			if (r == Result.OK)
+				model.addObject("message_info", "El usuario ha sido activado correctamente.");
+			else
+				model.addObject("message_error", "Ha ocurrido un error al activar el usuario.");
+		} catch (AppException e) {
+			model.addObject("message_error", "Ha ocurrido un error al activar el usuario.");
+			e.printStackTrace();
+		}
+		
+		model.setViewName("users");
 		return model;
 	}
 	

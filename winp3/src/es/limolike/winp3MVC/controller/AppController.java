@@ -224,7 +224,7 @@ public class AppController {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "¡Usuario o contraseña incorrectos!");
+			model.addObject("error", "Usuario o contrase�a incorrectos!");
 			model.addObject("login", "true");
 			model.setViewName("index");
 		} else {

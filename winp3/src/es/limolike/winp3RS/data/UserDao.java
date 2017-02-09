@@ -48,6 +48,10 @@ public class UserDao extends Dao implements IUserDao {
 		}
 	}
 	
+	
+	/**
+	 * TODO: Falta controlar el mensaje que da cuando no se puedan crear usuarios con el mismo username
+	 * */
 	@Transactional
 	public Result saveOrUpdate(User user) throws AppException {
 

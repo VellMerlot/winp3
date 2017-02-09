@@ -6,7 +6,8 @@ $(document).ready(function() {
 	$("#btn_password").click(function(){    	
 		var psd = $('#inputPassword').html();
 		$('#password').val(psd);
-		$('#password_span').html("********");
+		$('#password_span').val("********");
+		$('#password_span').blur();
     });
 	
 	
@@ -15,6 +16,9 @@ $(document).ready(function() {
 		$("#role").val(option);
 	});
 
+	$("#password_span").focus(function(){
+		$("#new_password" ).focus();
+	});
 });
 
 function getNewPassword() {

@@ -35,7 +35,7 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Entrar</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" name='loginForm' action="<c:url value='/web/j_spring_security_check' />" method='POST'>
+          <form data-toggle="validator" role="form" name="loginForm" action="<c:url value='/web/j_spring_security_check' />" method='POST'>
           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
           <input type="hidden" name="error" id="error" value="${error}" />
           

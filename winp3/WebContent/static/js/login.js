@@ -11,6 +11,8 @@ $(document).ready(function(){
     	$("#error_msg").show();
     	showLoginPanel();
     }
+    
+    
 });
 
 function showLoginPanel(){

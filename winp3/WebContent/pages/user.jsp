@@ -24,7 +24,7 @@
 		
 		<br>
 		<div class="well bs-component">
-              <form:form class="form-horizontal" method="post" modelAttribute="userForm" action="${formActionUrl}">
+              <form:form data-toggle="validator" role="form" class="form-horizontal" method="post" modelAttribute="userForm" action="${formActionUrl}">
               	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
               	<input type="hidden" name="id" value="${userForm.id}" />
               	
@@ -34,10 +34,10 @@
                     <label for="userName" class="col-lg-2 control-label">Nombre usuario</label>
                     <div class="col-lg-4">
                       <c:if test="${userForm.id eq 0}">
-                      	<input type="text" class="form-control" id="userName" name="userName" placeholder="" value="${userForm.userName}">
+                      	<input type="text" class="form-control" id="userName" name="userName" placeholder="" value="${userForm.userName}" required>
                       </c:if>
                       <c:if test="${userForm.id ne 0}">
-                      	<input type="hidden" class="form-control" id="userName" name="userName" value="${userForm.userName}">
+                      	<input type="hidden" id="userName" name="userName" value="${userForm.userName}">
                       	<span disabled class="form-control">${userForm.userName}</span>
                       </c:if>
                       
@@ -46,11 +46,9 @@
                   <div class="form-group">
                     <label for="password" class="col-lg-2 control-label">Password</label>
                     <div class="col-lg-4">
-                      <input type="hidden" id="password" name="password" placeholder="Password" value="${userForm.password}">
-                      <span disabled class="form-control" id="password_span">
-                      	<c:if test="${userForm.id eq 0}"></c:if>
-                      	<c:if test="${userForm.id ne 0}">********</c:if>
-                      </span>
+                      <input type="hidden" id="password" name="password" value="${userForm.password}">
+                      <input class="form-control" data-error="Obtener nuevo password mediante boton" id="password_span" required value='<c:if test="${userForm.id eq 0}"></c:if><c:if test="${userForm.id ne 0}">********</c:if>' />
+                      <div class="help-block with-errors"></div>
                     </div>
                     <div class="col-lg-4">
                       <button type="button" id="new_password" class="btn btn-default">Obtener password</button>
@@ -77,7 +75,7 @@
                   <div class="form-group">
                     <label for="role" class="col-lg-2 control-label">Tipo de usuario</label>
                     <div class="col-lg-10">
-                      <input type="hidden" class="form-control" id="role" name="role" value="${userForm.role}">
+                      <input type="hidden" id="role" name="role" value="${userForm.role}">
                       <c:if test="${userForm.id ne 0}">
                       	<span disabled class="form-control">
                       		<c:if test="${userForm.role eq 1}">USUARIO</c:if>
@@ -85,11 +83,12 @@
                       	</span>
                       </c:if>
                       <c:if test="${userForm.id eq 0}">
-                      	<select id="role_list"  class="form-control">
-                      		<option value="0" selected="selected">--</option>
+                      	<select id="role_list" class="form-control" required>
+                      		<option></option>
                       		<option value="1">USUARIO</option>
                       		<option value="2">ADMIN</option>
                       	</select>
+                      	<div class="help-block with-errors"></div>
                       </c:if>
                     </div>
                   </div>

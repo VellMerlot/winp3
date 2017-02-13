@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import es.limolike.winp3.common.AppException;
 import es.limolike.winp3.common.Result;
 import es.limolike.winp3RS.domain.Configuration;
+import es.limolike.winp3RS.domain.Simulator;
 import es.limolike.winp3RS.domain.User;
 import es.limolike.winp3RS.service.IUserService;
 import es.limolike.winp3RS.service.IConfigurationService;
@@ -61,7 +62,37 @@ public class AppController {
 	public ModelAndView simPage() {
 
 		ModelAndView model = new ModelAndView();
+		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
+		
+		/*
+		 * cargar datos de tabla global
+		 * */		
+		
 		model.setViewName("simulator");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/simulator/generate" }, method = RequestMethod.POST)
+	public ModelAndView saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
+		
+		/* genara XML a devolver */
+		model.setViewName("simulator");
+		
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/simulator/load" }, method = RequestMethod.POST)
+	public ModelAndView loadSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
+		model.addObject("load", true);
+		model.addObject("simulatorForm", simulator);
+		model.setViewName("simulator");
+		
 		return model;
 	}
 	

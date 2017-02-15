@@ -19,8 +19,9 @@
 	<%@ include file="logout.jsp"%>
 
 	<div class="container">
-		<div class="text-center">
+		<div class="jumbotron">
 			<h1>Configuración de constantes</h1>
+			<p>Área para la modificación de constantes</p>
 			
 			<c:if test="${not empty message_info}">
 				<div class="alert alert-dismissible alert-success" id="updatedAlertOK">
@@ -38,7 +39,7 @@
 		</div>
 		<form:form class="form-horizontal" method="post" modelAttribute="configurationForm" action="${formActionUrl}">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<input type="text" name="id" value="${configurationForm.id}" />
+			<input type="hidden" name="id" value="${configurationForm.id}" />
 			<div class="row">
 				<fieldset>
 					<legend>Parámetros generales</legend>

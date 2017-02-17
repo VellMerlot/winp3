@@ -6,8 +6,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "simulator")
 public class Simulator {
+	
 	private int id;
-	private String Name;
+	private String name;
 
 	public Simulator() {
 		// TODO Auto-generated constructor stub
@@ -16,7 +17,7 @@ public class Simulator {
 	public Simulator(int id, String name) {
 		super();
 		this.id = id;
-		Name = name;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -29,12 +30,12 @@ public class Simulator {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	@XmlElement
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	
 	

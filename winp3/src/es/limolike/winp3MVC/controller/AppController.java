@@ -1,13 +1,11 @@
 package es.limolike.winp3MVC.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -18,11 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import es.limolike.winp3.common.AppException;
 import es.limolike.winp3.common.Result;
 import es.limolike.winp3RS.domain.Configuration;
-import es.limolike.winp3RS.domain.FileBucket;
+import es.limolike.winp3RS.domain.Outcome;
 import es.limolike.winp3RS.domain.Simulator;
 import es.limolike.winp3RS.domain.User;
 import es.limolike.winp3RS.service.IConfigurationService;
@@ -100,15 +93,30 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/pages/simulator/generate" }, method = RequestMethod.POST)
-	public void  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator, HttpServletResponse response) throws IOException, JAXBException {
+	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.GET)
+	public ModelAndView  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("formActionUrl", "/winp3/web/pages/simulator/outcome/generate");
+		
+		
+		// hacer calculos y devolver resultado
+		// guardar simulacion??? o devolver el bean y guardarla despues????
+		
+		model.addObject("outcomeForm", new Outcome());
+		model.setViewName("outcome");
+		return model;
+	}
 	
-		Simulator sim = new Simulator(1,"hola");
+	@RequestMapping(value = { "/pages/simulator/outcome/generate" }, method = RequestMethod.POST)
+	public void  saveSimulatorPage(@ModelAttribute("outcomeForm") Outcome result, HttpServletResponse response) throws IOException, JAXBException {
+	
+		//Simulator sim = new Simulator(1,"hola");
 		
 		try 
 		{
 	        response.setContentType("application/xml");
-	        response.setHeader("Content-Disposition", "attachment; filename=simulacion_"+sim.getId()+".xml");
+	        response.setHeader("Content-Disposition", "attachment; filename=simulacion_"+result.getId()+".xml");
 
 	        JAXBContext jaxbContext = JAXBContext.newInstance(Simulator.class);
 	        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -118,7 +126,7 @@ public class AppController {
 	        
 	        // writing to a file
 	        /*ObjectOutputStream out = new ObjectOutputStream(response.getOutputStream());*/
-	        jaxbMarshaller.marshal(sim, response.getOutputStream());
+	        jaxbMarshaller.marshal(result, response.getOutputStream());
 	        
 	        // writing to console
 	        // jaxbMarshaller.marshal(book, System.out);
@@ -192,6 +200,7 @@ public class AppController {
 
 		return "redirect:/simulator";
 	}
+	
 	/*@RequestMapping(value="/pages/simulator/load", method = RequestMethod.POST)
 	public String singleFileUpload(@Valid FileBucket fileBucket, BindingResult result, ModelMap model) throws IOException {
 		 

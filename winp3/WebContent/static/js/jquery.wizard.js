@@ -76,15 +76,15 @@ if(!bg){
 		onCompleted: false,
 		bottomButtons: false,
 		topButtons: true,
-		autoSubmit: false,
+		autoSubmit: true,
 		keyboard: true,
 		btnClass: 'btn',
 		btnClassDefault: 'btn-default',
 		btnClassCompleted: 'btn-success',
 		text:{
-			finished: 'Complete',
-			next: 'Next',
-			previous: 'Previous'
+			finished: 'Generar',
+			next: 'Siguiente',
+			previous: 'Anterior'
 		}
 	},
 	

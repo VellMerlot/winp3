@@ -4,17 +4,17 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "simulator")
-public class Simulator {
+@XmlRootElement(name = "outcome")
+public class Outcome {
 	
 	private int id;
 	private String name;
 
-	public Simulator() {
+	public Outcome() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Simulator(int id, String name) {
+	public Outcome(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

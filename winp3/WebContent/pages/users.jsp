@@ -46,10 +46,10 @@
 			
 	      	<div class="row" style="padding-top: 2%; text-align: right;">
 	      		<div class="col-md-12">
-	      	<form name="form" action="<c:url value='/web/pages/users/new' />" method="get">
-		        	<button type="submit" class="btn btn-primary">Nuevo usuario</button>
-		        </form>	
-	      	</div>
+	      			<form name="form" action="<c:url value='/web/pages/users/new' />" method="get">
+		        		<button type="submit" class="btn btn-primary">Nuevo usuario</button>
+		        	</form>	
+	      		</div>
 	      	</div>
 			<div class="row" style="padding-top: 2%;">
 				

@@ -38,7 +38,8 @@
 			<p>This is a simple hero unit, a simple jumbotron-style component
 				for calling extra attention to featured content or information.</p>
 			<p>
-				<a class="btn btn-primary btn-lg">Comenzar simulación</a>
+				<a href="<c:url value='/web/pages/simulator' />"
+					class="btn btn-primary btn-lg">Comenzar simulación</a>
 			</p>
 		</div>
 		<sec:authorize access="hasRole('ADMIN')">
@@ -49,7 +50,7 @@
 					information.</p>
 				<p>
 					<a href="<c:url value='/web/pages/configuration' />"
-						class="btn btn-primary btn-lg">Learn more</a>
+						class="btn btn-primary btn-lg">Configuración</a>
 				</p>
 			</div>
 			<div class="jumbotron">
@@ -59,7 +60,7 @@
 					information.</p>
 				<p>
 					<a href="<c:url value='/web/pages/users' />"
-						class="btn btn-primary btn-lg">Learn more</a>
+						class="btn btn-primary btn-lg">Usuarios</a>
 				</p>
 			</div>
 		</sec:authorize>

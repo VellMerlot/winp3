@@ -1,24 +1,44 @@
 package es.limolike.winp3MVC.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.limolike.winp3.common.AppException;
 import es.limolike.winp3.common.Result;
 import es.limolike.winp3RS.domain.Configuration;
+import es.limolike.winp3RS.domain.FileBucket;
 import es.limolike.winp3RS.domain.Simulator;
 import es.limolike.winp3RS.domain.User;
-import es.limolike.winp3RS.service.IUserService;
 import es.limolike.winp3RS.service.IConfigurationService;
+import es.limolike.winp3RS.service.IUserService;
 
 @Controller
 public class AppController {
@@ -36,6 +56,14 @@ public class AppController {
 	public IConfigurationService getConfigurationService() {
 		return configurationService;
 	}
+	
+//	@Autowired
+//    FileValidator fileValidator;
+//	
+//	@InitBinder("fileBucket")
+//    protected void initBinderFileBucket(WebDataBinder binder) {
+//       binder.setValidator(fileValidator);
+//    }
 
 	@RequestMapping(value = { "/web" }, method = RequestMethod.GET)
 	public ModelAndView indexPage() {
@@ -73,19 +101,36 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = { "/pages/simulator/generate" }, method = RequestMethod.POST)
-	public ModelAndView saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
+	public void  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator, HttpServletResponse response) throws IOException, JAXBException {
+	
+		Simulator sim = new Simulator(1,"hola");
+		
+		try 
+		{
+	        response.setContentType("application/xml");
+	        response.setHeader("Content-Disposition", "attachment; filename=simulacion_"+sim.getId()+".xml");
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
-		
-		/* genara XML a devolver */
-		model.setViewName("simulator");
-		
-		return model;
+	        JAXBContext jaxbContext = JAXBContext.newInstance(Simulator.class);
+	        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+	        
+	        // output pretty printed
+	        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	        
+	        // writing to a file
+	        /*ObjectOutputStream out = new ObjectOutputStream(response.getOutputStream());*/
+	        jaxbMarshaller.marshal(sim, response.getOutputStream());
+	        
+	        // writing to console
+	        // jaxbMarshaller.marshal(book, System.out);
+	        
+	        response.flushBuffer();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 	
-	@RequestMapping(value = { "/pages/simulator/load" }, method = RequestMethod.POST)
-	public ModelAndView loadSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
+	//@RequestMapping(value = { "/pages/simulator/load" }, headers=("content-type=multipart/*"), method = RequestMethod.POST)
+	/*public ModelAndView loadSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
@@ -94,7 +139,78 @@ public class AppController {
 		model.setViewName("simulator");
 		
 		return model;
+	}*/
+	/*public @ResponseBody String uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
+
+		if (!file.isEmpty()) {
+			try {
+				byte[] bytes = file.getBytes();
+
+				// Creating the directory to store file
+				String rootPath = System.getProperty("catalina.home");
+				File dir = new File(rootPath + File.separator + "tmpFiles");
+				if (!dir.exists())
+					dir.mkdirs();
+
+				// Create the file on server
+				File serverFile = new File(dir.getAbsolutePath() + File.separator + name);
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+
+				return "You successfully uploaded file=" + name;
+			} catch (Exception e) {
+				return "You failed to upload " + name + " => " + e.getMessage();
+			}
+		} else {
+			return "You failed to upload " + name
+					+ " because the file was empty.";
+		}
+	}*/
+	@RequestMapping(value = { "/pages/simulator/load" }, method = RequestMethod.POST)
+	@ResponseBody
+	public String singleFileUpload(@RequestParam("file") MultipartFile file) {
+
+		if (file.isEmpty()) {
+			//redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+			return "redirect:simulator";
+		}
+
+		try {
+
+			// Get the file and save it somewhere
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get("C:\\project\\" + file.getOriginalFilename());
+			Files.write(path, bytes);
+
+			//redirectAttributes.addFlashAttribute("message",	"You successfully uploaded '" + file.getOriginalFilename() + "'");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "redirect:/simulator";
 	}
+	/*@RequestMapping(value="/pages/simulator/load", method = RequestMethod.POST)
+	public String singleFileUpload(@Valid FileBucket fileBucket, BindingResult result, ModelMap model) throws IOException {
+		 
+        if (result.hasErrors()) {
+            System.out.println("validation errors");
+            return "simulator";
+        } else {            
+            System.out.println("Fetching file");
+            MultipartFile multipartFile = fileBucket.getFile();
+ 
+            //Now do something with file...
+            FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File("C:\\project\\" + fileBucket.getFile().getOriginalFilename()));
+             
+            String fileName = multipartFile.getOriginalFilename();
+            model.addAttribute("fileName", fileName);
+            return "simulator";
+        }
+    }*/
+	
 	
 	@RequestMapping(value = { "/pages/users" }, method = RequestMethod.GET)
 	public ModelAndView userPage() {

@@ -84,7 +84,7 @@ public class AppController {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
-		
+		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
 		/*
 		 * cargar datos de tabla global
 		 * */		
@@ -93,26 +93,25 @@ public class AppController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.GET)
-	public ModelAndView  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
+	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.POST)
+	public ModelAndView  outcomePage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("formActionUrl", "/winp3/web/pages/simulator/outcome/generate");
-		
+		model.addObject("formActionGenerate", "/winp3/web/pages/simulator/outcome/generate");
 		
 		// hacer calculos y devolver resultado
-		// guardar simulacion??? o devolver el bean y guardarla despues????
-		
 		model.addObject("outcomeForm", new Outcome());
+		
+		// guardar simulacion??? o devolver el bean y guardarla despues????
+		model.addObject("simulatorForm", result);
+		
 		model.setViewName("outcome");
 		return model;
 	}
 	
 	@RequestMapping(value = { "/pages/simulator/outcome/generate" }, method = RequestMethod.POST)
-	public void  saveSimulatorPage(@ModelAttribute("outcomeForm") Outcome result, HttpServletResponse response) throws IOException, JAXBException {
+	public void  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
 	
-		//Simulator sim = new Simulator(1,"hola");
-		
 		try 
 		{
 	        response.setContentType("application/xml");

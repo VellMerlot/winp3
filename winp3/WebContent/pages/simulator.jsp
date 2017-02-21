@@ -21,16 +21,8 @@
   	<div class="container">
 		<h1>SIMULATOR</h1>
 		
-		<div class="row" style="padding-top: 2%; text-align: right;">
-	      		<div class="col-md-12">
-	      			<form name="form" action="${formActionUrl}" method="post">
-	      				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		        		<button type="submit" class="btn btn-primary">Generar</button>
-		        	</form>	
-	      		</div>
-	      	</div>
-	      	
-	      	
+		<div id="simActions">
+		      	
 	      <div class="row" style="padding-top: 2%; text-align: right;">
 	      		<div class="col-md-12">	
 	      			<form name="form2" action="/winp3/web/pages/simulator/load" method="post" >
@@ -40,8 +32,13 @@
 					</form>
 	      		</div>
 	      </div>
-	
-	 
+	      <div class="row" style="padding-top: 2%; text-align: right;">
+	      		<div class="col-md-12">	
+						<button type="button" id="btn_simNew" class="btn btn-primary">NEW</button>
+	      		</div>
+	      </div>
+		</div>
+	 	<div id="simNew">
 	 	<div class="jumbotron">
 			<h1>WinP3</h1>
 			<p>Realizar una simulación</p>
@@ -63,7 +60,7 @@
 		
 		
 		
-		<form name="form" action="${formActionUrl}" method="post">
+		<form name="form" action="${formActionOutcome}" method="post">
 	    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	    	
 	    	<input type="hidden" name="id" value="1" />
@@ -111,6 +108,7 @@
 				</div>
 			</div>
 		</form>
+		</div>
     </div><!--/.container-->
 	
 	<%@ include file="footer.jsp" %>

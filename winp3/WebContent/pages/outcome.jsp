@@ -8,10 +8,7 @@
 <head>
   <%@ include file="head.jsp" %>
 
-  <link rel="stylesheet" href="<c:url value='/static/css/jquery.wizard.css' />">
-  
-  
-  <title>Simulador</title>
+  <title>Resultado simulación</title>
 </head> 
 
 <body>
@@ -19,25 +16,39 @@
   	<%@ include file="logout.jsp" %>
   	
   	<div class="container">
-		<h1>RESULTADOS</h1>
+		<h1>RESULTADO SIMULACIÓN</h1>
+		
+		<div class="row" style="padding-top: 5%; margin: 0.67em 0;">
+			<fieldset>
+				<legend>Parámetros generales</legend>
+				<div class="col-sm-6 col-lg-4">
+					<div class="form-group">
+						<label for="name" class="col-md-4 control-label">Name:</label>
+						<div class="col-md-8 input-group">
+							<input type="text" name="name" value="${outcomeForm.name}" readonly>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
 		
 		<div class="row" style="padding-top: 2%; text-align: right;">
 	      		<div class="col-md-12">
-	      			<form name="form" action="${formActionUrl}" method="post">
+	      			<form name="form" action="${formActionGenerate}" method="post">
 	      				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		        		<button type="submit" class="btn btn-primary">Generar</button>
-		        	</form>	
+	      				
+	      				<input type="hidden" name="id" value="${simulatorForm.id}" />
+	    				<input type="hidden" name="name" value="${simulatorForm.name}" />
+	    				
+		        		<button type="submit" class="btn btn-primary">Guardar Simulación</button>
+		        		<button type="button" id="btn_print" class="btn btn-primary">Imprimir Resultado</button>
+		        	</form>
 	      		</div>
 	      	</div>
-	      	
-	     
-	
-	 
 	 	
     </div><!--/.container-->
 	
 	<%@ include file="footer.jsp" %>
-	<script type="text/javascript" src="<c:url value='/static/js/jquery.wizard.js' />"></script>
-	<script type="text/javascript" src="<c:url value='/static/js/simulator.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/static/js/outcome.js' />"></script>
 </body>
 </html>

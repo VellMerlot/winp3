@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.limolike.winp3.common.AppException;
+import es.limolike.winp3.common.Result;
 import es.limolike.winp3.service.AppService;
 import es.limolike.winp3RS.data.IConfigurationDao;
 import es.limolike.winp3RS.domain.Configuration;
@@ -32,7 +33,7 @@ public class ConfigurationService extends AppService implements IConfigurationSe
 	}
 
 	@Override
-	public int update(Configuration configuration) throws AppException {
+	public Result update(Configuration configuration) throws AppException {
 		return this.getConfigurationDao().update(configuration);
 	}
 

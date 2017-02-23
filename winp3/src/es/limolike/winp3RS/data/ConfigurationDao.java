@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.limolike.winp3.common.AppException;
+import es.limolike.winp3.common.Result;
 import es.limolike.winp3.data.Dao;
 import es.limolike.winp3RS.domain.Configuration;
 
@@ -52,7 +53,7 @@ public class ConfigurationDao extends Dao implements IConfigurationDao {
 	}
 
 	@Transactional
-	public int update(Configuration configuration) throws AppException {
+	public Result update(Configuration configuration) throws AppException {
 		try {
 			Map<String, Object> params = new HashMap<String, Object>();
 			
@@ -66,10 +67,10 @@ public class ConfigurationDao extends Dao implements IConfigurationDao {
 //					+ "adaptacion_vivienda= ,adaptacion_vehiculos=  "
 					+ "WHERE id = :ID", params);
 
-			if (result == 1)
-				commit();
+			if (result != 1)
+				throw new AppException("ERROR update. ("+result+")");
 			
-			return result;
+			return Result.OK;
 		} catch (Exception e) {
 			throw new AppException("ERROR update Configuration ");
 		}

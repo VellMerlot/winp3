@@ -1,8 +1,7 @@
 $(document).ready(function() {
 //	loadConfiguration();
 	
-	$("#updatedAlert").hide();
-	$("#updatedAlert").hide();
+	$(".alert-success").delay(3000).fadeOut("slow", function () { $(this).remove(); });
 });
 
 //function loadConfiguration() {

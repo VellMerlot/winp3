@@ -206,10 +206,17 @@ public class AppController {
 		System.out.println(configuration);
 		
 		try {
-			int result = configurationService.update(configuration);
+			Result result = configurationService.update(configuration);
+			
+			if (result == Result.OK)
+				model.addObject("message_info", "Se han guardado las configuración de constantes correctamente.");
+			else
+				model.addObject("message_error", "Ha ocurrido un error al guardar la configuración de constantes.");
 		} catch (AppException e) {
+			model.addObject("message_error", "Ha ocurrido un error al activar el usuario.");
 			e.printStackTrace();
 		}
+		
 		model.addObject("configurationForm", configuration);
 		model.setViewName("configuration");
 		
@@ -224,7 +231,7 @@ public class AppController {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Usuario o contrase�a incorrectos!");
+			model.addObject("error", "Usuario o contrase�a incorrectos!");
 			model.addObject("login", "true");
 			model.setViewName("index");
 		} else {

@@ -1,9 +1,6 @@
 package es.limolike.winp3MVC.controller;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
@@ -20,8 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.limolike.winp3.common.AppException;
@@ -92,114 +87,7 @@ public class AppController {
 		model.setViewName("simulator");
 		return model;
 	}
-	
-	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.POST)
-	public ModelAndView  outcomePage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("formActionGenerate", "/winp3/web/pages/simulator/outcome/generate");
 		
-		// hacer calculos y devolver resultado
-		model.addObject("outcomeForm", new Outcome());
-		
-		// guardar simulacion??? o devolver el bean y guardarla despues????
-		model.addObject("simulatorForm", result);
-		
-		model.setViewName("outcome");
-		return model;
-	}
-	
-	@RequestMapping(value = { "/pages/simulator/outcome/generate" }, method = RequestMethod.POST)
-	public void  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
-	
-		try 
-		{
-	        response.setContentType("application/xml");
-	        response.setHeader("Content-Disposition", "attachment; filename=simulacion_"+result.getId()+".xml");
-
-	        JAXBContext jaxbContext = JAXBContext.newInstance(Simulator.class);
-	        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-	        
-	        // output pretty printed
-	        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-	        
-	        // writing to a file
-	        /*ObjectOutputStream out = new ObjectOutputStream(response.getOutputStream());*/
-	        jaxbMarshaller.marshal(result, response.getOutputStream());
-	        
-	        // writing to console
-	        // jaxbMarshaller.marshal(book, System.out);
-	        
-	        response.flushBuffer();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
-	
-	//@RequestMapping(value = { "/pages/simulator/load" }, headers=("content-type=multipart/*"), method = RequestMethod.POST)
-	/*public ModelAndView loadSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
-		model.addObject("load", true);
-		model.addObject("simulatorForm", simulator);
-		model.setViewName("simulator");
-		
-		return model;
-	}*/
-	/*public @ResponseBody String uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
-
-		if (!file.isEmpty()) {
-			try {
-				byte[] bytes = file.getBytes();
-
-				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
-				File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())
-					dir.mkdirs();
-
-				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath() + File.separator + name);
-				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-				stream.write(bytes);
-				stream.close();
-
-
-				return "You successfully uploaded file=" + name;
-			} catch (Exception e) {
-				return "You failed to upload " + name + " => " + e.getMessage();
-			}
-		} else {
-			return "You failed to upload " + name
-					+ " because the file was empty.";
-		}
-	}*/
-	@RequestMapping(value = { "/pages/simulator/load" }, method = RequestMethod.POST)
-	@ResponseBody
-	public String singleFileUpload(@RequestParam("file") MultipartFile file) {
-
-		if (file.isEmpty()) {
-			//redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-			return "redirect:simulator";
-		}
-
-		try {
-
-			// Get the file and save it somewhere
-			byte[] bytes = file.getBytes();
-			Path path = Paths.get("C:\\project\\" + file.getOriginalFilename());
-			Files.write(path, bytes);
-
-			//redirectAttributes.addFlashAttribute("message",	"You successfully uploaded '" + file.getOriginalFilename() + "'");
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return "redirect:/simulator";
-	}
-	
 	/*@RequestMapping(value="/pages/simulator/load", method = RequestMethod.POST)
 	public String singleFileUpload(@Valid FileBucket fileBucket, BindingResult result, ModelMap model) throws IOException {
 		 
@@ -261,91 +149,7 @@ public class AppController {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-	}
-	
-	//@RequestMapping(value = { "/pages/simulator/load" }, headers=("content-type=multipart/*"), method = RequestMethod.POST)
-	/*public ModelAndView loadSimulatorPage(@ModelAttribute("simulatorForm") Simulator simulator) {
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
-		model.addObject("load", true);
-		model.addObject("simulatorForm", simulator);
-		model.setViewName("simulator");
-		
-		return model;
-	}*/
-	/*public @ResponseBody String uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
-
-		if (!file.isEmpty()) {
-			try {
-				byte[] bytes = file.getBytes();
-
-				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
-				File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())
-					dir.mkdirs();
-
-				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath() + File.separator + name);
-				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-				stream.write(bytes);
-				stream.close();
-
-
-				return "You successfully uploaded file=" + name;
-			} catch (Exception e) {
-				return "You failed to upload " + name + " => " + e.getMessage();
-			}
-		} else {
-			return "You failed to upload " + name
-					+ " because the file was empty.";
-		}
-	}*/
-	@RequestMapping(value = { "/pages/simulator/load" }, method = RequestMethod.POST)
-	@ResponseBody
-	public String singleFileUpload(@RequestParam("file") MultipartFile file) {
-
-		if (file.isEmpty()) {
-			//redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-			return "redirect:simulator";
-		}
-
-		try {
-
-			// Get the file and save it somewhere
-			byte[] bytes = file.getBytes();
-			Path path = Paths.get("C:\\project\\" + file.getOriginalFilename());
-			Files.write(path, bytes);
-
-			//redirectAttributes.addFlashAttribute("message",	"You successfully uploaded '" + file.getOriginalFilename() + "'");
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return "redirect:/simulator";
-	}
-	
-	/*@RequestMapping(value="/pages/simulator/load", method = RequestMethod.POST)
-	public String singleFileUpload(@Valid FileBucket fileBucket, BindingResult result, ModelMap model) throws IOException {
-		 
-        if (result.hasErrors()) {
-            System.out.println("validation errors");
-            return "simulator";
-        } else {            
-            System.out.println("Fetching file");
-            MultipartFile multipartFile = fileBucket.getFile();
- 
-            //Now do something with file...
-            FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File("C:\\project\\" + fileBucket.getFile().getOriginalFilename()));
-             
-            String fileName = multipartFile.getOriginalFilename();
-            model.addAttribute("fileName", fileName);
-            return "simulator";
-        }
-    }*/
-	
+	}		
 	
 	@RequestMapping(value = { "/pages/users" }, method = RequestMethod.GET)
 	public ModelAndView userPage() {

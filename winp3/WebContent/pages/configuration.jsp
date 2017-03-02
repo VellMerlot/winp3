@@ -19,18 +19,10 @@
 	<%@ include file="logout.jsp"%>
 
 	<div class="container">
-<<<<<<< HEAD
-		<div class="">
-=======
+		
 		<div class="jumbotron">
 			<h1>Configuración de constantes</h1>
 			<p>Área para la modificación de constantes</p>
->>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
-			
-			<div class="jumbotron">
-				<h1>Configuración de constantes</h1>
-				<p>Zona de configuración de constantes. </p>
-			</div>
 			
 			<c:if test="${not empty message_error}">
 				<div class="alert alert-dismissible alert-danger" id="updatedAlertError">

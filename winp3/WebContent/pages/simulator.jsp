@@ -25,11 +25,14 @@
 		      	
 	      <div class="row" style="padding-top: 2%; text-align: right;">
 	      		<div class="col-md-12">	
-	      			<form name="form2" action="/winp3/web/pages/simulator/load" method="post" >
+					<div id="upload"></div>
+	      			<form:form method="post" action="/winp3/web/pages/simulator/load" commandName="handleForm" >
 	      				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-						File1 to upload: <input type="file" name="file">
+						Upload File: <input type="file" name="file" >
+						<br /><br />
+						Description: <input type="text" name="description"/>
 						<button type="submit"  class="btn btn-primary">Upload</button>
-					</form>
+					</form:form>
 	      		</div>
 	      </div>
 	      <div class="row" style="padding-top: 2%; text-align: right;">
@@ -113,6 +116,7 @@
 	
 	<%@ include file="footer.jsp" %>
 	<script type="text/javascript" src="<c:url value='/static/js/jquery.wizard.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/static/js/mfupload.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/simulator.js' />"></script>
 </body>
 </html>

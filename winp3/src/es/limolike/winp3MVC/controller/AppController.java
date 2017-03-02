@@ -88,26 +88,6 @@ public class AppController {
 		return model;
 	}
 	
-	/*@RequestMapping(value="/pages/simulator/load", method = RequestMethod.POST)
-	public String singleFileUpload(@Valid FileBucket fileBucket, BindingResult result, ModelMap model) throws IOException {
-		 
-        if (result.hasErrors()) {
-            System.out.println("validation errors");
-            return "simulator";
-        } else {            
-            System.out.println("Fetching file");
-            MultipartFile multipartFile = fileBucket.getFile();
- 
-            //Now do something with file...
-            FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File("C:\\project\\" + fileBucket.getFile().getOriginalFilename()));
-             
-            String fileName = multipartFile.getOriginalFilename();
-            model.addAttribute("fileName", fileName);
-            return "simulator";
-        }
-    }*/
-	
-	
 	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.POST)
 	public ModelAndView  outcomePage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
 

@@ -78,13 +78,25 @@ public class AppController {
 	public ModelAndView simPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("formActionUrl", "/winp3/web/pages/simulator/generate");
-		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
+//		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
 		/*
 		 * cargar datos de tabla global
 		 * */		
 		
 		model.setViewName("simulator");
+		return model;
+	}
+	
+	@RequestMapping(value = { "/pages/simulator_load" }, method = RequestMethod.GET)
+	public ModelAndView simLoadPage() {
+
+		ModelAndView model = new ModelAndView();
+//		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
+		/*
+		 * cargar datos de tabla global
+		 * */		
+		
+		model.setViewName("simulator_load");
 		return model;
 	}
 	

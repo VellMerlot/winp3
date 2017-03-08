@@ -40,6 +40,8 @@
 			<p>
 				<a href="<c:url value='/web/pages/simulator' />"
 					class="btn btn-primary btn-lg">Comenzar simulación</a>
+				<a href="<c:url value='/web/pages/simulator_load' />"
+					class="btn btn-primary btn-lg">Cargar simulación</a>
 			</p>
 		</div>
 		<sec:authorize access="hasRole('ADMIN')">

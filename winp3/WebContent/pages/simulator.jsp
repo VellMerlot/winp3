@@ -19,29 +19,7 @@
   	<%@ include file="logout.jsp" %>
   	
   	<div class="container">
-		<h1>SIMULATOR</h1>
 		
-		<div id="simActions">
-		      	
-	      <div class="row" style="padding-top: 2%; text-align: right;">
-	      		<div class="col-md-12">	
-					<div id="upload"></div>
-	      			<form:form method="post" action="/winp3/web/pages/simulator/load" commandName="handleForm" >
-	      				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-						Upload File: <input type="file" name="file" >
-						<br /><br />
-						Description: <input type="text" name="description"/>
-						<button type="submit"  class="btn btn-primary">Upload</button>
-					</form:form>
-	      		</div>
-	      </div>
-	      <div class="row" style="padding-top: 2%; text-align: right;">
-	      		<div class="col-md-12">	
-						<button type="button" id="btn_simNew" class="btn btn-primary">NEW</button>
-	      		</div>
-	      </div>
-		</div>
-	 	<div id="simNew">
 	 	<div class="jumbotron">
 			<h1>WinP3</h1>
 			<p>Realizar una simulación</p>
@@ -80,6 +58,12 @@
 				  <div class="steps-content">
 					<div data-step="1">
 					  <h4>Details</h4>
+					  <div class="form-group">
+						<label for="name" class="col-md-4 control-label">Name:</label>
+						<div class="col-md-8 input-group">
+							<input type="text" name="name" value="${outcomeForm.name}" >
+						</div>
+						</div>
 					  <p>
 						Sed ac nulla nec turpis pharetra rutrum et at mauris. Phasellus eleifend molestie est, eu lacinia nisi gravida non. Nullam sit amet pulvinar dolor. Etiam id fermentum erat. Proin quis rutrum sapien.
 					  </p>
@@ -111,7 +95,6 @@
 				</div>
 			</div>
 		</form>
-		</div>
     </div><!--/.container-->
 	
 	<%@ include file="footer.jsp" %>

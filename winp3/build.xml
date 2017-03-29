@@ -4,10 +4,10 @@
 	<property name="web.dir">WebContent</property>
 	<property name="web.lib.dir">${web.dir}/WEB-INF/lib</property>
 	<property name="build.classes.dir">${web.dir}/WEB-INF/classes</property>
-	<property name="build.dir">${web.dir}/build</property>
-	<property name="dist.dir">${web.dir}/dist</property>
+	<property name="build.dir">build</property>
+	<property name="dist.dir">dist</property>
 	<property name="project.dir">.</property>
-	<property name="project.name">WINP3</property>
+	<property name="project.name">winp3</property>
 	<!-- <property name="tomcat.home">/usr/local/apache-tomcat-8.5.11/</property> -->
 	<property name="tomcat.home">C:\Program Files\Apache Software Foundation\Tomcat 8.5</property>
 	

@@ -1,10 +1,12 @@
 $(document).ready(function() {
 	$("#simNew").hide();
+	$("#conyugeForm").hide();
 	$("#btn_simNew").click(function(){    	
 		$("#simNew").show();
 		$("#simActions").hide();
     });
 	
+	$('#datetimepicker1').datetimepicker();
 	
 	$('#upload').mfupload({
 		type: 'xml', //all types
@@ -30,4 +32,11 @@ $(document).ready(function() {
 	});   
 });
 
-
+function tieneConyuge(mostrar) {
+	if (mostrar) {
+		$("#conyugeForm").show();
+	} else {
+		$("#conyugeForm").hide();
+	}
+	
+}

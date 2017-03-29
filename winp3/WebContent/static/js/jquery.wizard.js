@@ -82,7 +82,7 @@ if(!bg){
 		btnClassDefault: 'btn-default',
 		btnClassCompleted: 'btn-success',
 		text:{
-			finished: 'Generar',
+			finished: 'Descargar en fichero',
 			next: 'Siguiente',
 			previous: 'Anterior'
 		}

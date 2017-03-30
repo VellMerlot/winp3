@@ -48,8 +48,7 @@
     </div><!--/.container-->
 	
 	<%@ include file="footer.jsp" %>
-	<script type="text/javascript" src="<c:url value='/static/js/jquery.wizard.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/mfupload.js' />"></script>
-	<script type="text/javascript" src="<c:url value='/static/js/simulator.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/static/js/simulator.load.js' />"></script>
 </body>
 </html>

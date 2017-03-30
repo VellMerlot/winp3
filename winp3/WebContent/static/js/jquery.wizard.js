@@ -74,8 +74,8 @@ if(!bg){
 		currentStep: 0,
 		checkStep: false,
 		onCompleted: false,
-		bottomButtons: false,
-		topButtons: true,
+		bottomButtons: true,
+		topButtons: false,
 		autoSubmit: true,
 		keyboard: true,
 		btnClass: 'btn',
@@ -83,6 +83,7 @@ if(!bg){
 		btnClassCompleted: 'btn-success',
 		text:{
 			finished: 'Descargar en fichero',
+			print: 'Imprimir',
 			next: 'Siguiente',
 			previous: 'Anterior'
 		}
@@ -168,9 +169,11 @@ if(!bg){
 		// set buttons based on current step
 		that.$element.find('.btn-next').removeClass('final-step '+ opts.btnClassCompleted).addClass(opts.btnClassDefault);
 		that.$element.find('.btn-prev').removeClass('disabled hidden');
+		$("#btn_print").hide();
 		if(that.currentStep == stepsItems.length){
 			// we are in the last step
 			that.$element.find('.btn-next').removeClass(opts.btnClassDefault).addClass('final-step '+ opts.btnClassCompleted);
+			$("#btn_print").show();
 		} else if(that.currentStep == 1){
 			that.$element.find('.btn-prev').addClass('disabled hidden');
 		}		
@@ -263,7 +266,8 @@ if(!bg){
 			if(opts.topButtons && stepsBar.length && !topActions.length){
 				html += '<div class="top-actions"><div class="btn-group">';
 				html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-prev"><span class="previous-text">'+ opts.text.previous +'</span></span>';
-				html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span>';
+				//html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span>';
+				html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="print-text">'+ opts.text.print +'</span></span><span class="finished-text">'+ opts.text.finished +'</span></span>';
 				html += '</div></div>';
 				
 				stepsBar.after(html);
@@ -273,7 +277,8 @@ if(!bg){
 			if(opts.bottomButtons && !bottomActions.length){
 				html += '<div class="bottom-actions">';
 				html += '<div class="left-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-prev"><span class="previous-text">'+ opts.text.previous +'</span></span></div>';
-				html += '<div class="right-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span></div>';
+				//html += '<div class="right-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span></div>';
+				html += '<div class="right-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span><span id="btn_print" class="btn btn-primary">'+ opts.text.print +'</span></div>';
 				html += '</div>';
 				
 				that.$element.find('.steps-content').append(html);

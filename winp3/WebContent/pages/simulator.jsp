@@ -18,17 +18,18 @@
 	<%@ include file="navbar.jsp" %>
   	<%@ include file="logout.jsp" %>
   	
-  	<script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });
-    </script>
+  	
   	
   	<div class="container">
 		
 	 	<div class="jumbotron">
 			<h1>WinP3</h1>
-			<p>Realizar una simulación</p>
+			<c:if test="${actionType == 'load'}">
+				<p>Cargar una simulación</p>
+			</c:if>
+			<c:if test="${actionType == 'new'}">
+				<p>Realizar una simulación</p>
+			</c:if>
 			
 			<c:if test="${not empty message_info}">
 				<div class="alert alert-dismissible alert-success" id="updatedAlertOK">
@@ -45,8 +46,22 @@
 			
 		</div>
 		
+		<c:if test="${actionType == 'load'}">
+			<div id="simActions">
+				<div class="row" style="padding-top: 2%; text-align: right;">
+	  				<div class="col-md-12">	
+						<div id="upload"></div>
+	  				</div>
+	  			</div>
+			</div>
+		</c:if>
 		
-		<form name="form">
+		<c:set var="showForm" value="hidden"/>
+		<c:if test="${actionType == 'new'}">
+			<c:set var="showForm" value=""/>
+		</c:if>
+		
+		<form id="form" name="form" action="${formActionOutcome}" method="post" class="${showForm}">
 	    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	    	
 	    	<input type="hidden" name="id" value="1" />
@@ -396,7 +411,7 @@
 					
 				</div>
 			</div>
-		</form>
+		</form>		
     </div><!--/.container-->
 	
 	<%@ include file="footer.jsp" %>

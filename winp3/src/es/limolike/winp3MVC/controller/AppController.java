@@ -78,7 +78,13 @@ public class AppController {
 	public ModelAndView simPage() {
 
 		ModelAndView model = new ModelAndView();
-//		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
+		//model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
+		
+		// Aqui le enviará el formulario para que genere el XML
+		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome/generate");
+		
+		model.addObject("actionType", "new");
+		
 		/*
 		 * cargar datos de tabla global
 		 * */		
@@ -91,30 +97,36 @@ public class AppController {
 	public ModelAndView simLoadPage() {
 
 		ModelAndView model = new ModelAndView();
-//		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
+		//model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome");
+		
+		// Aqui le enviará el formulario para que genere el XML
+		model.addObject("formActionOutcome", "/winp3/web/pages/simulator/outcome/generate");
+				
+		model.addObject("actionType", "load");
+		
 		/*
 		 * cargar datos de tabla global
 		 * */		
 		
-		model.setViewName("simulator_load");
+		model.setViewName("simulator");
 		return model;
 	}
 	
-	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.POST)
-	public ModelAndView  outcomePage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("formActionGenerate", "/winp3/web/pages/simulator/outcome/generate");
-		
-		// hacer calculos y devolver resultado
-		model.addObject("outcomeForm", new Outcome());
-		
-		// guardar simulacion??? o devolver el bean y guardarla despues????
-		model.addObject("simulatorForm", result);
-		
-		model.setViewName("outcome");
-		return model;
-	}
+//	@RequestMapping(value = { "/pages/simulator/outcome" }, method = RequestMethod.POST)
+//	public ModelAndView  outcomePage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {
+//
+//		ModelAndView model = new ModelAndView();
+//		model.addObject("formActionGenerate", "/winp3/web/pages/simulator/outcome/generate");
+//		
+//		// hacer calculos y devolver resultado
+//		model.addObject("outcomeForm", new Outcome());
+//		
+//		// guardar simulacion??? o devolver el bean y guardarla despues????
+//		model.addObject("simulatorForm", result);
+//		
+//		model.setViewName("outcome");
+//		return model;
+//	}
 	
 	@RequestMapping(value = { "/pages/simulator/outcome/generate" }, method = RequestMethod.POST)
 	public void  saveSimulatorPage(@ModelAttribute("simulatorForm") Simulator result, HttpServletResponse response) throws IOException, JAXBException {

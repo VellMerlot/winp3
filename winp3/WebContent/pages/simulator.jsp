@@ -120,36 +120,29 @@
 									<div class="form-group">
 					                    <label for="role" class="col-lg-2 control-label">Comunidad de Residencia:</label>
 					                    <div class="col-lg-6">
-					                      <select class="form-control" id="sel1">
-										  	<option>Andalucía</option>
-											<option>Aragón</option>
-											<option>Asturias</option>
-											<option>Baleares</option>
-											<option>Canarias</option>
-											<option>Cantabria</option>
-											<option>Castilla y León</option>
-											<option>Castilla-La Mancha</option>
-											<option>Cataluña</option>
-											<option>Comunidad Valenciana</option>
-											<option>Extremadura</option>
-											<option>Galicia</option>
-											<option>La Rioja</option>
-											<option>Madrid</option>
-											<option>Murcia</option>
-											<option>Navarra</option>
-											<option>Guipuzcoa</option>
-											<option>Alava</option>
-											<option>Vizcaya</option>
-										</select>
+											<select class="form-control" id="sel1">
+												<option>Andalucía</option>
+												<option>Aragón</option>
+												<option>Asturias</option>
+												<option>Baleares</option>
+												<option>Canarias</option>
+												<option>Cantabria</option>
+												<option>Castilla y León</option>
+												<option>Castilla-La Mancha</option>
+												<option>Cataluña</option>
+												<option>Comunidad Valenciana</option>
+												<option>Extremadura</option>
+												<option>Galicia</option>
+												<option>La Rioja</option>
+												<option>Madrid</option>
+												<option>Murcia</option>
+												<option>Navarra</option>
+												<option>Guipuzcoa</option>
+												<option>Alava</option>
+												<option>Vizcaya</option>
+											</select>
 					                    </div>
 					                </div>
-									<div class="form-group">
-										<label for="inputEmail" class="col-lg-2 control-label">Edad:</label>
-										<div class="col-lg-4 input-group">
-											<input type="text" class="form-control" name="nombre" id="edadTitular" readonly
-												placeholder="" value="">
-										</div>
-									</div>
 									<div class="form-group">
 										<label for="inputEmail" class="col-lg-2 control-label">Edad:</label>
 										<div class="col-lg-4 input-group">

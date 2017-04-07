@@ -1,5 +1,24 @@
 $(document).ready(function() {
 	
+	 $.datepicker.regional['es'] = {
+		 closeText: 'Cerrar',
+		 prevText: '< Ant',
+		 nextText: 'Sig >',
+		 currentText: 'Hoy',
+		 monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		 monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+		 dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		 dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+		 dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+		 weekHeader: 'Sm',
+		 dateFormat: 'dd/mm/yy',
+		 firstDay: 1,
+		 isRTL: false,
+		 yearSuffix: ''
+	 };
+	 
+	 $.datepicker.setDefaults($.datepicker.regional['es']);
+	
 	$("#conyugeForm").hide();
 	
 	
@@ -102,7 +121,7 @@ function calculateC() {
 
 function mostrarHijosForms(input) {
 	
-	var formHijo = "<fieldset> <legend>Datos de usuario</legend> <div class='form-group'> <label for='userName' class='col-lg-2 control-label'>Nombre usuario</label> <div class='col-lg-4'> <c:if test='${userForm.id eq 0}'> <input type='text' class='form-control' id='userName' name='userName' placeholder='' value='${userForm.userName}' required> </c:if> <c:if test='${userForm.id ne 0}'> <input type='hidden' id='userName' name='userName' value='${userForm.userName}'> <span disabled class='form-control'>${userForm.userName}</span> </c:if> </div></div><div class='form-group'> <label for='password' class='col-lg-2 control-label'>Password</label> <div class='col-lg-4'> <input type='hidden' id='password' name='password' value='${userForm.password}'> <input class='form-control' data-error='Obtener nuevo password mediante boton' id='password_span' required value='<c:if test='${userForm.id eq 0}'></c:if><c:if test='${userForm.id ne 0}'>********</c:if>'/> <div class='help-block with-errors'></div></div><div class='col-lg-4'> <button type='button' id='new_password' class='btn btn-default'>Obtener password</button> </div></div><div class='form-group'> <label for='firstName' class='col-lg-2 control-label'>Nombre</label> <div class='col-lg-10'> <input type='text' class='form-control' id='firstName' name='firstName' placeholder='' value='${userForm.firstName}'> </div></div><div class='form-group'> <label for='lastName' class='col-lg-2 control-label'>Apellidos</label> <div class='col-lg-10'> <input type='text' class='form-control' id='lastName' name='lastName' placeholder='' value='${userForm.lastName}'> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Email</label> <div class='col-lg-10'> <input type='text' class='form-control' id='email' name='email' placeholder='Email' value='${userForm.email}'> </div></div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Tipo de usuario</label> <div class='col-lg-10'> <input type='hidden' id='role' name='role' value='${userForm.role}'> <c:if test='${userForm.id ne 0}'> <span disabled class='form-control'> <c:if test='${userForm.role eq 1}'>USUARIO</c:if> <c:if test='${userForm.role eq 2}'>ADMIN</c:if> </span> </c:if> <c:if test='${userForm.id eq 0}'> <select id='role_list' class='form-control' required> <option></option> <option value='1'>USUARIO</option> <option value='2'>ADMIN</option> </select> <div class='help-block with-errors'></div></c:if> </div></div><div class='form-group'> <div class='col-lg-10 col-lg-offset-2'> <a href='<c:url value='/web/pages/users'/>' class='btn btn-default' role='button'>Cancela</a> <button type='submit' class='btn btn-primary'>Guardar</button> </div></div></fieldset>";
+	var formHijo = "<fieldset> <legend>Cuestionario Hija/o</legend> <div class='form-group'> <label for='userName' class='col-lg-2 control-label'>Nombre:</label> <div class='col-lg-4'> <input type='text' class='form-control' id='userName' name='userName' placeholder='' value='' required> </div></div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label><div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoConyuge'>Hombre</label><label class='radio-inline'><input type='radio' name='sexoConyuge'>Mujer</label></div></div><div class='form-group'> <label for='firstName' class='col-lg-2 control-label'>Nombre</label> <div class='col-lg-10'> <input type='text' class='form-control' id='firstName' name='firstName' placeholder='' value='${userForm.firstName}'> </div></div><div class='form-group'> <label for='lastName' class='col-lg-2 control-label'>Apellidos</label> <div class='col-lg-10'> <input type='text' class='form-control' id='lastName' name='lastName' placeholder='' value='${userForm.lastName}'> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Email</label> <div class='col-lg-10'> <input type='text' class='form-control' id='email' name='email' placeholder='Email' value='${userForm.email}'> </div></div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Tipo de usuario</label> <div class='col-lg-10'> <input type='hidden' id='role' name='role' value='${userForm.role}'> <c:if test='${userForm.id ne 0}'> <span disabled class='form-control'> <c:if test='${userForm.role eq 1}'>USUARIO</c:if> <c:if test='${userForm.role eq 2}'>ADMIN</c:if> </span> </c:if> <c:if test='${userForm.id eq 0}'> <select id='role_list' class='form-control' required> <option></option> <option value='1'>USUARIO</option> <option value='2'>ADMIN</option> </select> <div class='help-block with-errors'></div></c:if> </div></div><div class='form-group'> <div class='col-lg-10 col-lg-offset-2'> <a href='<c:url value='/web/pages/users'/>' class='btn btn-default' role='button'>Cancela</a> <button type='submit' class='btn btn-primary'>Guardar</button> </div></div></fieldset>";
 	
 	$( "#step1" ).append( formHijo );
 }

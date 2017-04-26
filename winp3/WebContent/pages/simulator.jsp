@@ -348,6 +348,15 @@
 							<fieldset>
 								<legend>En construcción</legend>
 								<div class="col-sm-6 col-lg-4">
+								
+								
+									<div id="canvas-holder">
+
+										<canvas id="chart-area" width="300" height="300"></canvas>
+										<canvas id="chart-area2" width="300" height="300"></canvas>
+									</div>
+								
+								
 								</div>
 							</fieldset>
 						</div>
@@ -362,6 +371,7 @@
 	<script type="text/javascript" src="<c:url value='/static/js/jquery-ui.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/jquery.wizard.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/mfupload.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/static/js/Chart.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/simulator.js' />"></script>
 </body>
 </html>

@@ -236,14 +236,20 @@ function calculaEdad(campoOrigen, campoDestino) {
 
 function mostrarHijosForms(input) {
 	
+<<<<<<< HEAD
 	var formHijo = "<fieldset class='fieldsetHijo'> <legend>Cuestionario Hija/o</legend> <div class='form-group'> <label for='userName' class='col-lg-2 control-label'>Nombre:</label> <div class='col-lg-4'> <input type='text' class='form-control' id='' name='' placeholder='' value='' required> </div></div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label><div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoHijo'>Hombre</label><label class='radio-inline'><input type='radio' name='sexoHijo'>Mujer</label></div></div><div class='form-group'> <label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label><div class='col-lg-4 input-group'><div class='input-group date' id='datetimepicker1'> <input type='text' class='form-control datepicker' id='fechaNacimientoTitular'/> <span class='input-group-addon'> <span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'> <label for='lastName' class='col-lg-2 control-label'>Hijo de:</label> <div class='col-lg-10'> <select class='form-control' id='sel1'><option>Ambos</option><option>Solo Titular</option><option>Solo Conyuge</option></select> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Edad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly><input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div></fieldset>";
+=======
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 	var formHijo = "";
 	
+<<<<<<< HEAD
 	if (input.value > 0) {
 		$(".fieldsetHijo").remove();
 		for (var i = 0; i < input.value; i++) {
 			$( "#step1" ).append( formHijo );
 		}
+=======
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 	for (var i = 1; i < (parseInt(input.value) + 1); i++) {
 		formHijo = "<fieldset><legend>Cuestionario Hija/o</legend>" +
 				"<div class='form-group'><label for='userName' class='col-lg-2 control-label'>Nombre:</label>" +

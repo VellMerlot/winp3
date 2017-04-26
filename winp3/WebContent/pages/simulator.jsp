@@ -170,8 +170,13 @@
 									<div class="form-group">
 										<label for="inputLabel3" class="col-lg-2 control-label">Fecha de Nacimiento:</label>
 										<div class="col-lg-4 input-group">
+<<<<<<< HEAD
 											<div class='input-group date' id='datetimepicker2'>
 							                    <input type='text' class="form-controldatepicker" id="fechaNacimientoConyuge"/>
+=======
+											<div class='input-group date' id='datetimepicker1'>
+							                    <input type='text' class="form-control datepicker" id="fechaNacimientoConyuge"/>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
 							                    </span>

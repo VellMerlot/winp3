@@ -217,15 +217,58 @@ function calculateC() {
 	}
 }
 
+function calculaEdad(campoOrigen, campoDestino) {
+	
+	var dateString = campoOrigen.value;
+	var dateParts = dateString.split("/");
+	var birthDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // month is 0-based;
+
+	if (birthDate != null) {
+		var today       = new Date();
+		var AgeInYears  = Math.floor ( (today - birthDate) / 31556952000 )
+//		var age_year  = Math.floor((end - start)/31536000000);
+//		var age_month = Math.floor(((end - start)% 31536000000)/2628000000);
+//		var age_day   = Math.floor((((end - start)% 31536000000) % 2628000000)/86400000);
+//  
+		campoDestino.value = AgeInYears;
+	}
+}
+
 function mostrarHijosForms(input) {
 	
 	var formHijo = "<fieldset class='fieldsetHijo'> <legend>Cuestionario Hija/o</legend> <div class='form-group'> <label for='userName' class='col-lg-2 control-label'>Nombre:</label> <div class='col-lg-4'> <input type='text' class='form-control' id='' name='' placeholder='' value='' required> </div></div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label><div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoHijo'>Hombre</label><label class='radio-inline'><input type='radio' name='sexoHijo'>Mujer</label></div></div><div class='form-group'> <label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label><div class='col-lg-4 input-group'><div class='input-group date' id='datetimepicker1'> <input type='text' class='form-control datepicker' id='fechaNacimientoTitular'/> <span class='input-group-addon'> <span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'> <label for='lastName' class='col-lg-2 control-label'>Hijo de:</label> <div class='col-lg-10'> <select class='form-control' id='sel1'><option>Ambos</option><option>Solo Titular</option><option>Solo Conyuge</option></select> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Edad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly><input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div></fieldset>";
+	var formHijo = "";
 	
 	if (input.value > 0) {
 		$(".fieldsetHijo").remove();
 		for (var i = 0; i < input.value; i++) {
 			$( "#step1" ).append( formHijo );
 		}
+	for (var i = 1; i < (parseInt(input.value) + 1); i++) {
+		formHijo = "<fieldset><legend>Cuestionario Hija/o</legend>" +
+				"<div class='form-group'><label for='userName' class='col-lg-2 control-label'>Nombre:</label>" +
+				"<div class='col-lg-4'> <input type='text' class='form-control' id='' name='NombreHijo" + i + 
+				"' placeholder='' value='' required>" +
+				"</div>" +
+				"</div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label>" +
+				"<div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoHijo" + i + "'>Hombre</label>" +
+				"<label class='radio-inline'><input type='radio' name='sexoHijo" + i + "'>Mujer</label></div></div><div class='form-group'>" +
+				"<label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label>" +
+				"<div class='col-lg-4 input-group'>" +
+				"<div class='input-group date' id='datetimepicker1'>" +
+				"<input type='text' class='form-control datepicker' id='fechaNacimientoHijo" + i + "'" +
+				" onChange='calculaEdad(fechaNacimientoHijo"+i+",edadHijo"+i+")'/>" +
+				"<span class='input-group-addon'>" +
+				"<span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'>" +
+				"<label for='lastName' class='col-lg-2 control-label'>Hijo de:</label> <div class='col-lg-10'>" +
+				"<select class='form-control' id='HijoDe" + i + "'><option>Ambos</option><option>Solo Titular</option><option>Solo Conyuge</option>" +
+				"</select> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Edad:</label>" +
+				"<div class='col-lg-10'> <input type='text' class='form-control' id='edadHijo" + i + "' name='edadHijo" + i + "' placeholder='' value='' readonly>" +
+				"</div>" +
+				"</div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label>" +
+				"<div class='col-lg-10'> <input type='text' class='form-control' id='' name='OrfandadHijo" + i + "' placeholder='' value='' readonly>" +
+				"</div></div></fieldset>";
+		$( "#step1" ).append( formHijo );
 	}
 	
 	$( ".datepicker" ).datepicker({

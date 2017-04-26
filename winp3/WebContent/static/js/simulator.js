@@ -77,7 +77,7 @@ $(document).ready(function() {
 				$("#form").removeClass("hidden");
 				
 				
-				// Injectar resultado al form
+				// Inyectar resultado al form
 			}
 		},
 		error: function(error){ 
@@ -89,6 +89,104 @@ $(document).ready(function() {
 	$("#btn_print").click(function(){
 		window.print();
 	});
+	
+	
+	
+	var ctx = document.getElementById("chart-area").getContext("2d");
+	var myChart = new Chart(ctx, {
+	    type: 'horizontalBar',
+	    data: {
+	        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+	        datasets: [{
+	            label: '# of Votes',
+	            data: [12, 19, 3, 5, 2, 3],
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(75, 192, 192, 0.2)',
+	                'rgba(153, 102, 255, 0.2)',
+	                'rgba(255, 159, 64, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(75, 192, 192, 1)',
+	                'rgba(153, 102, 255, 1)',
+	                'rgba(255, 159, 64, 1)'
+	            ],
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
+	        }
+	    }
+	});	
+	
+	
+	var ctx2 = document.getElementById("chart-area2").getContext("2d");
+	var myChart2 = new Chart(ctx2, {
+	    type: 'bar',
+	    data: {
+	        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+	        datasets: [
+	        	{
+	            data: [12, 19, 3, 5, 2, 3],
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(75, 192, 192, 0.2)',
+	                'rgba(153, 102, 255, 0.2)',
+	                'rgba(255, 159, 64, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(75, 192, 192, 1)',
+	                'rgba(153, 102, 255, 1)',
+	                'rgba(255, 159, 64, 1)'
+	            ],
+	            borderWidth: 1
+	        },
+	        {
+	            data: [15, 29, 9, 8, 4, 4],
+	            backgroundColor: [
+	                'rgba(155, 99, 132, 0.2)',
+	                'rgba(44, 162, 235, 0.2)',
+	                'rgba(155, 206, 86, 0.2)',
+	                'rgba(65, 192, 192, 0.2)',
+	                'rgba(53, 102, 255, 0.2)',
+	                'rgba(155, 159, 64, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(75, 192, 192, 1)',
+	                'rgba(153, 102, 255, 1)',
+	                'rgba(255, 159, 64, 1)'
+	            ],
+	            borderWidth: 1
+	        }
+	        	]
+	    },
+	    options: {
+	        scales: {
+	        	xAxes: [{
+	                stacked: true
+	            }]
+	        }
+	    }
+	});	
 });
 
 function calculateT() {
@@ -121,15 +219,27 @@ function calculateC() {
 
 function mostrarHijosForms(input) {
 	
-	var formHijo = "<fieldset> <legend>Cuestionario Hija/o</legend> <div class='form-group'> <label for='userName' class='col-lg-2 control-label'>Nombre:</label> <div class='col-lg-4'> <input type='text' class='form-control' id='' name='' placeholder='' value='' required> </div></div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label><div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoHijo'>Hombre</label><label class='radio-inline'><input type='radio' name='sexoHijo'>Mujer</label></div></div><div class='form-group'> <label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label><div class='col-lg-4 input-group'><div class='input-group date' id='datetimepicker1'> <input type='text' class='form-control datepicker' id='fechaNacimientoTitular'/> <span class='input-group-addon'> <span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'> <label for='lastName' class='col-lg-2 control-label'>Hijo de:</label> <div class='col-lg-10'> <select class='form-control' id='sel1'><option>Ambos</option><option>Solo Titular</option><option>Solo Conyuge</option></select> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Edad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div></fieldset>";
+	var formHijo = "<fieldset class='fieldsetHijo'> <legend>Cuestionario Hija/o</legend> <div class='form-group'> <label for='userName' class='col-lg-2 control-label'>Nombre:</label> <div class='col-lg-4'> <input type='text' class='form-control' id='' name='' placeholder='' value='' required> </div></div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label><div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoHijo'>Hombre</label><label class='radio-inline'><input type='radio' name='sexoHijo'>Mujer</label></div></div><div class='form-group'> <label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label><div class='col-lg-4 input-group'><div class='input-group date' id='datetimepicker1'> <input type='text' class='form-control datepicker' id='fechaNacimientoTitular'/> <span class='input-group-addon'> <span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'> <label for='lastName' class='col-lg-2 control-label'>Hijo de:</label> <div class='col-lg-10'> <select class='form-control' id='sel1'><option>Ambos</option><option>Solo Titular</option><option>Solo Conyuge</option></select> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Edad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label> <div class='col-lg-10'> <input type='text' class='form-control' id='' name='' placeholder='' value='' readonly><input type='text' class='form-control' id='' name='' placeholder='' value='' readonly> </div></div></fieldset>";
 	
-	for (var i = 0; i < input.value; i++) {
-		$( "#step1" ).append( formHijo );
+	if (input.value > 0) {
+		$(".fieldsetHijo").remove();
+		for (var i = 0; i < input.value; i++) {
+			$( "#step1" ).append( formHijo );
+		}
 	}
+	
+	$( ".datepicker" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true,
+	      dateFormat: 'dd/mm/yy',
+	      onSelect: calculateC,
+	      maxDate: '+0d',     
+	      yearRange: '1910:+0',
+	    });
 	
 }
 
-function tieneConyuge(mostrar) {
+function showConyugeForm(mostrar) {
 	if (mostrar) {
 		$("#conyugeForm").show();
 	} else {

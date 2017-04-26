@@ -106,8 +106,8 @@
 									<div class="form-group">
 										<label for="inputLabel4" class="col-lg-2 control-label">¿Tiene cónyuge?</label>
 										<div class="col-lg-4 input-group">
-											<label class="radio-inline"><input type="radio" name="tieneConyuge" onclick="tieneConyuge(1);">Si</label>
-											<label class="radio-inline"><input type="radio" name="tieneConyuge" onclick="tieneConyuge(0);">No</label>
+											<label class="radio-inline"><input type="radio" name="tieneConyuge" onclick="javascript:showConyugeForm(true);">Si</label>
+											<label class="radio-inline"><input type="radio" name="tieneConyuge" onclick="javascript:showConyugeForm(false);">No</label>
 										</div>
 									</div>
 									<div class="form-group">
@@ -171,7 +171,7 @@
 										<label for="inputLabel3" class="col-lg-2 control-label">Fecha de Nacimiento:</label>
 										<div class="col-lg-4 input-group">
 											<div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-controldatepicker" id="fechaNacimientoConyuge"/>
+							                    <input type='text' class="form-control datepicker" id="fechaNacimientoConyuge"/>
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
 							                    </span>
@@ -348,6 +348,15 @@
 							<fieldset>
 								<legend>En construcción</legend>
 								<div class="col-sm-6 col-lg-4">
+								
+								
+									<div id="canvas-holder">
+
+										<canvas id="chart-area" width="300" height="300"></canvas>
+										<canvas id="chart-area2" width="300" height="300"></canvas>
+									</div>
+								
+								
 								</div>
 							</fieldset>
 						</div>
@@ -362,6 +371,7 @@
 	<script type="text/javascript" src="<c:url value='/static/js/jquery-ui.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/jquery.wizard.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/mfupload.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/static/js/Chart.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/simulator.js' />"></script>
 </body>
 </html>

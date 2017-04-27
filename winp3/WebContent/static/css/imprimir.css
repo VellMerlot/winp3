@@ -1,0 +1,7 @@
+div.bottom-actions, div.steps-index-container, div.jumbotron, footer>div.container {
+	display: none !important;
+}
+
+.printable {
+	display: block !important;
+}

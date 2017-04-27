@@ -10,6 +10,7 @@
 
 	<link rel="stylesheet" href="<c:url value='/static/css/jquery-ui.css' />">
   	<link rel="stylesheet" href="<c:url value='/static/css/jquery.wizard.css' />">
+  	<link rel="stylesheet" type="text/css" href="<c:url value='/static/css/imprimir.css' />" media='print'>
   
   
   <title>Simulador</title>
@@ -170,13 +171,10 @@
 									<div class="form-group">
 										<label for="inputLabel3" class="col-lg-2 control-label">Fecha de Nacimiento:</label>
 										<div class="col-lg-4 input-group">
-<<<<<<< HEAD
+
 											<div class='input-group date' id='datetimepicker2'>
 							                    <input type='text' class="form-controldatepicker" id="fechaNacimientoConyuge"/>
-=======
-											<div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control datepicker" id="fechaNacimientoConyuge"/>
->>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
 							                    </span>
@@ -194,7 +192,7 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
-					<div data-step="2">
+					<div data-step="2" class="printable">
 					   <div class="row">
 							<fieldset>
 								<legend>Situación Seguridad Social (Titular)</legend>
@@ -498,7 +496,7 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
-					<div data-step="3">
+					<div data-step="3" class="printable">
 					  <div class="row">
 							<fieldset>
 								<legend>En construcción</legend>
@@ -507,8 +505,8 @@
 								
 									<div id="canvas-holder">
 
-										<canvas id="chart-area" width="300" height="300"></canvas>
-										<canvas id="chart-area2" width="300" height="300"></canvas>
+										<canvas id="chart-area" width="400" height="400"></canvas>
+										<canvas id="chart-area2" width="400" height="400"></canvas>
 									</div>
 								
 								

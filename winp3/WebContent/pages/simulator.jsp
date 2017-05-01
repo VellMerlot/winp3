@@ -10,6 +10,7 @@
 
 	<link rel="stylesheet" href="<c:url value='/static/css/jquery-ui.css' />">
   	<link rel="stylesheet" href="<c:url value='/static/css/jquery.wizard.css' />">
+  	<link rel="stylesheet" type="text/css" href="<c:url value='/static/css/imprimir.css' />" media='print'>
   
   
   <title>Simulador</title>
@@ -170,13 +171,10 @@
 									<div class="form-group">
 										<label for="inputLabel3" class="col-lg-2 control-label">Fecha de Nacimiento:</label>
 										<div class="col-lg-4 input-group">
-<<<<<<< HEAD
+
 											<div class='input-group date' id='datetimepicker2'>
 							                    <input type='text' class="form-controldatepicker" id="fechaNacimientoConyuge"/>
-=======
-											<div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control datepicker" id="fechaNacimientoConyuge"/>
->>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
 							                    </span>
@@ -194,7 +192,7 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
-					<div data-step="2">
+					<div data-step="2" class="printable">
 					   <div class="row">
 							<fieldset>
 								<legend>Situación Seguridad Social (Titular)</legend>
@@ -478,27 +476,55 @@
 							<fieldset>
 								<legend>Deudas pendientes (Titular)</legend>
 								<div class="form-group">
-									<label for="ahorroTitular" class="col-lg-2 control-label">Capacidad Mensual Ahorro</label>
+									<label for="hipotecaTitular" class="col-lg-2 control-label">Hipoteca</label>
 									<div class="col-lg-10 input-group">
-										<input type="text" class="form-control" id="ahorroTitular"
-											name="ahorroTitular" placeholder="" value="">
+										<input type="text" class="form-control" id="hipotecaTitular"
+											name="hipotecaTitular" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda2Titular" class="col-lg-2 control-label">Deuda 2</label>
+									<div class="col-lg-10 input-group">
+										<input type="text" class="form-control" id="deuda2Titular"
+											name="deuda2Titular" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda3Titular" class="col-lg-2 control-label">Deuda 3</label>
+									<div class="col-lg-10 input-group">
+										<input type="text" class="form-control" id="deuda3Titular"
+											name="deuda3Titular" placeholder="" value="">
 									</div>
 								</div>
 							</fieldset>
 							<fieldset>
 								<legend>Deudas pendientes (Conyuge)</legend>
 								<div class="form-group">
-									<label for="ahorroConyuge" class="col-lg-2 control-label">Capacidad Mensual Ahorro</label>
+									<label for="hipotecaConyuge" class="col-lg-2 control-label">Hipoteca</label>
 									<div class="col-lg-10 input-group">
-										<input type="text" class="form-control" id="ahorroConyuge"
-											name="ahorroConyuge" placeholder="" value="">
+										<input type="text" class="form-control" id="hipotecaConyuge"
+											name="hipotecaConyuge" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda2Conyuge" class="col-lg-2 control-label">Deuda 2</label>
+									<div class="col-lg-10 input-group">
+										<input type="text" class="form-control" id="deuda2Conyuge"
+											name="deuda2Conyuge" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda3Conyuge" class="col-lg-2 control-label">Deuda 3</label>
+									<div class="col-lg-10 input-group">
+										<input type="text" class="form-control" id="deuda3Conyuge"
+											name="deuda3Conyuge" placeholder="" value="">
 									</div>
 								</div>
 							</fieldset>
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
-					<div data-step="3">
+					<div data-step="3" class="printable">
 					  <div class="row">
 							<fieldset>
 								<legend>En construcción</legend>
@@ -507,8 +533,8 @@
 								
 									<div id="canvas-holder">
 
-										<canvas id="chart-area" width="300" height="300"></canvas>
-										<canvas id="chart-area2" width="300" height="300"></canvas>
+										<canvas id="chart-area" width="400" height="400"></canvas>
+										<canvas id="chart-area2" width="400" height="400"></canvas>
 									</div>
 								
 								

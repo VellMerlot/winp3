@@ -187,7 +187,11 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
+<<<<<<< HEAD
 					<div data-step="2" id="divStep2" class="printable">
+=======
+					<div data-step="2">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 					   <div class="row">
 							<fieldset>
 								<legend>Situación Seguridad Social (Titular)</legend>
@@ -961,18 +965,479 @@
 									</table>
 								</div>
 							</fieldset>
+							<fieldset>
+								<legend>Activos (Ahorro e inversión):</legend>
+								<div class="form-group">
+									<table class="table table-bordered">
+										<tr>
+											<td>A quién afecta</td>
+											<td>Tipo</td>
+											<td>Capital Hoy</td>
+											<td>Capital a la Jubilación</td>
+											<td>Prima o aportación mensual</td>
+											<td>Derechos Consolidados 31/12/2006</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta1">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo1">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy1"
+														name="capitalHoy1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion1"
+														name="capitalJubilacion1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual1"
+														name="primaMensual1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos1"
+														name="derechos1" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta2">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo2">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy2"
+														name="capitalHoy2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion2"
+														name="capitalJubilacion2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual2"
+														name="primaMensual2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos2"
+														name="derechos2" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta3">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo3">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy3"
+														name="capitalHoy3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion3"
+														name="capitalJubilacion3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual3"
+														name="primaMensual3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos3"
+														name="derechos3" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta4">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo4">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy4"
+														name="capitalHoy4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion4"
+														name="capitalJubilacion4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual4"
+														name="primaMensual4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos4"
+														name="derechos4" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta5">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo5">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy5"
+														name="capitalHoy5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion5"
+														name="capitalJubilacion5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual5"
+														name="primaMensual5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos5"
+														name="derechos5" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta6">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo6">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy6"
+														name="capitalHoy6" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion6"
+														name="capitalJubilacion6" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual6"
+														name="primaMensual6" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos6"
+														name="derechos6" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</fieldset>
+							<fieldset>
+								<legend>Activos (Seguros de Vida Contratados):</legend>
+								<div class="form-group">
+									<table class="table table-bordered">
+										<tr>
+											<td>Asegurado</td>
+											<td>Fallecimiento</td>
+											<td>IPA</td>
+											<td>IPT</td>
+											<td>Prima anual</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado1">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento1"
+														name="fallecimiento1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa1"
+														name="ipa1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt1"
+														name="ipt1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual1"
+														name="primaAnual1" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado2">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento2"
+														name="fallecimiento2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa2"
+														name="ipa2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt2"
+														name="ipt2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual2"
+														name="primaAnual2" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado3">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento3"
+														name="fallecimiento3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa3"
+														name="ipa3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt3"
+														name="ipt3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual3"
+														name="primaAnual3" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado4">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento4"
+														name="fallecimiento4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa4"
+														name="ipa4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt4"
+														name="ipt4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual4"
+														name="primaAnual4" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado5">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento5"
+														name="fallecimiento5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa5"
+														name="ipa5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt5"
+														name="ipt5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual5"
+														name="primaAnual5" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</fieldset>
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
+<<<<<<< HEAD
 					<div data-step="3" id="divStep3" class="printable">
+=======
+					<div data-step="3" class="printable">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 						<div class="row">
 							<fieldset>
+<<<<<<< HEAD
 								<legend>En construcción</legend>
 								<div class="col-sm-6 col-lg-4">					
 									<div id="canvas-holder">
 										<canvas id="chart-area" width="400" height="400"></canvas>
 										<canvas id="chart-area2" width="400" height="400"></canvas>
 									</div>				
+=======
+								<legend>Resultado Incapacidad Temporal (IT)</legend>
+								<div class="form-group">
+									<label for="inputEmail" class="col-lg-2 control-label">Edad:</label>
+									<div class="col-lg-4 input-group">
+										<input type="text" class="form-control" name="nombre" id="edadConyuge" readonly
+											placeholder="" value="">
+									</div>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 								</div>
 							</fieldset>
 						</div>

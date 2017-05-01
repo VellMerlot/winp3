@@ -219,35 +219,28 @@ $(document).ready(function() {
 	        }
 	    }
 	});	
+	
+	
+	$(".next-text").click(function(){    	
+    	submitManual();
+    	if ($("div#divStep1 .has-error").length > 0 && $("div#divStep1.active")) {
+    		alert('Verifique todos los campos.');
+    		return false;
+    	}
+    	if ($("div#divStep2 .has-error").length > 0 && $("div#divStep2.active")) {
+    		alert('Verifique todos los campos.');
+    		return false;
+    	}
+    	if ($("div#divStep3 .has-error").length > 0 && $("div#divStep3.active")) {
+    		alert('Verifique todos los campos.');
+    		return false;
+    	}
+    }); 
 });
 
-/*function calculateT() {
-	
-	var start = $('#fechaNacimientoTitular').datepicker('getDate');
-	
-	if (start != null) {
-		var end       = new Date();
-		var age_year  = Math.floor((end - start)/31536000000);
-		var age_month = Math.floor(((end - start)% 31536000000)/2628000000);
-		var age_day   = Math.floor((((end - start)% 31536000000) % 2628000000)/86400000);
-  
-		$("#edadTitular").val(age_year);
-	}
+function submitManual(){
+	$("input").blur();
 }
-
-function calculateC() {
-	
-	var start = $('#fechaNacimientoConyuge').datepicker('getDate');
-	
-	if (start != null) {
-		var end       = new Date();
-		var age_year  = Math.floor((end - start)/31536000000);
-		var age_month = Math.floor(((end - start)% 31536000000)/2628000000);
-		var age_day   = Math.floor((((end - start)% 31536000000) % 2628000000)/86400000);
-  
-		$("#edadConyuge").val(age_year);
-	}
-}*/
 
 function calculaEdad(campoOrigen, campoDestino) {
 	
@@ -258,10 +251,7 @@ function calculaEdad(campoOrigen, campoDestino) {
 	if (birthDate != null) {
 		var today       = new Date();
 		var AgeInYears  = Math.floor ( (today - birthDate) / 31556952000 )
-//		var age_year  = Math.floor((end - start)/31536000000);
-//		var age_month = Math.floor(((end - start)% 31536000000)/2628000000);
-//		var age_day   = Math.floor((((end - start)% 31536000000) % 2628000000)/86400000);
-//  
+
 		campoDestino.value = AgeInYears;
 	}
 }
@@ -271,13 +261,15 @@ function mostrarHijosForms(input) {
 	
 	var formHijo = "";
 	
+	$(".FormHijo").remove();
+	
 	for (var i = 1; i < (parseInt(input.value) + 1); i++) {
-		formHijo = "<fieldset id='formHijo" + i + "'>" +
+		formHijo = "<fieldset id='formHijo" + i + "' class='FormHijo'>" +
 				"<legend>Cuestionario Hija/o</legend>" +
 				"<div class='form-group'>" +
 				"<label for='userName' class='col-lg-2 control-label'>Nombre:</label>" +
 				"<div class='col-lg-4 input-group'>" +
-				"<input type='text' class='form-control' id='' name='NombreHijo" + i + "' placeholder='' value='' required>" +
+				"<input required data-error='Campo obligatorio' type='text' class='form-control' id='' name='NombreHijo" + i + "' placeholder='' value='' required>" +
 				"</div>" +
 				"</div>" +
 				"<div class='form-group'>" +
@@ -291,7 +283,7 @@ function mostrarHijosForms(input) {
 				"<label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label>" +
 				"<div class='col-lg-4 input-group'>" +
 				"<div class='input-group date' id='datetimepicker1'>" +
-				"<input type='text' class='form-control datepicker' id='fechaNacimientoHijo" + i + "'" +
+				"<input required data-error='Campo obligatorio' type='text' class='form-control datepicker' id='fechaNacimientoHijo" + i + "'" +
 				" onChange='calculaEdad(fechaNacimientoHijo"+i+",edadHijo"+i+");CalculaOrfandad(HijoDe" + i + ", edadHijo" + i + ", OrfandadHijo" + i + ", OrfandadCHijo" + i + ");'/>" +
 				"<span class='input-group-addon'>" +
 				"<span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'>" +
@@ -333,13 +325,16 @@ function mostrarHijosForms(input) {
 	      maxDate: '+0d',     
 	      yearRange: '1910:+0',
 	    });
+	$("#form").validator('update');
 }
 
 function showConyugeForm(mostrar) {
 	if (mostrar) {
 		$("#conyugeForm").show();
+		$(".conyugeForm").show();
 	} else {
 		$("#conyugeForm").hide();
+		$(".conyugeForm").hide();
 	}
 }
 

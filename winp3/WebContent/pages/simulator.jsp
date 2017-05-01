@@ -97,7 +97,7 @@
 										<label for="inputLabel3" class="col-lg-2 control-label">Fecha de Nacimiento:</label>
 										<div class="col-lg-4 input-group">
 											<div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control datepicker" id="fechaNacimientoTitular"/>
+							                    <input type='text' class="form-control datepicker" id="fechaNacimientoTitular" onChange='calculaEdad(fechaNacimientoTitular,edadTitular)'/>
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
 							                    </span>
@@ -157,8 +157,7 @@
 									<div class="form-group">
 										<label for="inputEmail" class="col-lg-2 control-label">Nombre:</label>
 										<div class="col-lg-4 input-group">
-											<input type="text" class="form-control" name="nombre"
-												placeholder="" value="">
+											<input type="text" class="form-control" name="nombre" placeholder="" value="">
 										</div>
 									</div>
 									<div class="form-group">
@@ -173,7 +172,7 @@
 										<div class="col-lg-4 input-group">
 
 											<div class='input-group date' id='datetimepicker2'>
-							                    <input type='text' class="form-controldatepicker" id="fechaNacimientoConyuge"/>
+							                    <input type='text' class="form-control datepicker" id="fechaNacimientoConyuge" onChange='calculaEdad(fechaNacimientoConyuge,edadConyuge)'/>
 
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
@@ -192,7 +191,7 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
-					<div data-step="2" class="printable">
+					<div data-step="2">
 					   <div class="row">
 							<fieldset>
 								<legend>Situación Seguridad Social (Titular)</legend>
@@ -259,8 +258,6 @@
 									</div>
 							</fieldset>
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
-						</div>
-						 <div  class="well bs-component">
 							<fieldset>
 								<legend>Autónomos (Titular)</legend>
 									<div class="form-group">
@@ -408,22 +405,22 @@
 							<fieldset>
 								<legend>Ingresos distintos al trabajo (Titular)</legend>
 								<div class="form-group">
-									<label for="ingresosTitular" class="col-lg-2 control-label">Ingresos</label>
-									<div class="col-lg-10 input-group">
+									<label for="ingresosTitular" class="col-lg-4 control-label">Ingresos</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ingresosTitular"
 											name="ingresosTitular" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="periodicidadTitular" class="col-lg-2 control-label">Periodicidad</label>
-									<div class="col-lg-10 input-group">
+									<label for="periodicidadTitular" class="col-lg-4 control-label">Periodicidad</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="periodicidadTitular"
 											name="periodicidadTitular" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="retencionTitular" class="col-lg-2 control-label">Retención</label>
-									<div class="col-lg-10 input-group">
+									<label for="retencionTitular" class="col-lg-4 control-label">Retención</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="retencionTitular"
 											name="retencionTitular" placeholder="" value="">
 									</div>
@@ -432,22 +429,22 @@
 							<fieldset>
 								<legend>Ingresos distintos al trabajo (Cónyuge)</legend>
 								<div class="form-group">
-									<label for="ingresosConyuge" class="col-lg-2 control-label">Ingresos</label>
-									<div class="col-lg-10 input-group">
+									<label for="ingresosConyuge" class="col-lg-4 control-label">Ingresos</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ingresosConyuge"
 											name="ingresosConyuge" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="periodicidadConyuge" class="col-lg-2 control-label">Periodicidad</label>
-									<div class="col-lg-10 input-group">
+									<label for="periodicidadConyuge" class="col-lg-4 control-label">Periodicidad</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="periodicidadConyuge"
 											name="periodicidadConyuge" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="retencionConyuge" class="col-lg-2 control-label">Retención</label>
-									<div class="col-lg-10 input-group">
+									<label for="retencionConyuge" class="col-lg-4 control-label">Retención</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="retencionConyuge"
 											name="retencionConyuge" placeholder="" value="">
 									</div>
@@ -456,8 +453,8 @@
 							<fieldset>
 								<legend>Gastos (Titular)</legend>
 								<div class="form-group">
-									<label for="ahorroTitular" class="col-lg-2 control-label">Capacidad Mensual Ahorro</label>
-									<div class="col-lg-10 input-group">
+									<label for="ahorroTitular" class="col-lg-4 control-label">Capacidad Mensual Ahorro</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ahorroTitular"
 											name="ahorroTitular" placeholder="" value="">
 									</div>
@@ -466,8 +463,8 @@
 							<fieldset>
 								<legend>Gastos (Conyuge)</legend>
 								<div class="form-group">
-									<label for="ahorroConyuge" class="col-lg-2 control-label">Capacidad Mensual Ahorro</label>
-									<div class="col-lg-10 input-group">
+									<label for="ahorroConyuge" class="col-lg-4 control-label">Capacidad Mensual Ahorro</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ahorroConyuge"
 											name="ahorroConyuge" placeholder="" value="">
 									</div>
@@ -476,22 +473,22 @@
 							<fieldset>
 								<legend>Deudas pendientes (Titular)</legend>
 								<div class="form-group">
-									<label for="hipotecaTitular" class="col-lg-2 control-label">Hipoteca</label>
-									<div class="col-lg-10 input-group">
+									<label for="hipotecaTitular" class="col-lg-4 control-label">Hipoteca</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="hipotecaTitular"
 											name="hipotecaTitular" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="deuda2Titular" class="col-lg-2 control-label">Deuda 2</label>
-									<div class="col-lg-10 input-group">
+									<label for="deuda2Titular" class="col-lg-4 control-label">Deuda 2</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="deuda2Titular"
 											name="deuda2Titular" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="deuda3Titular" class="col-lg-2 control-label">Deuda 3</label>
-									<div class="col-lg-10 input-group">
+									<label for="deuda3Titular" class="col-lg-4 control-label">Deuda 3</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="deuda3Titular"
 											name="deuda3Titular" placeholder="" value="">
 									</div>
@@ -500,46 +497,497 @@
 							<fieldset>
 								<legend>Deudas pendientes (Conyuge)</legend>
 								<div class="form-group">
-									<label for="hipotecaConyuge" class="col-lg-2 control-label">Hipoteca</label>
-									<div class="col-lg-10 input-group">
+									<label for="hipotecaConyuge" class="col-lg-4 control-label">Hipoteca</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="hipotecaConyuge"
 											name="hipotecaConyuge" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="deuda2Conyuge" class="col-lg-2 control-label">Deuda 2</label>
-									<div class="col-lg-10 input-group">
+									<label for="deuda2Conyuge" class="col-lg-4 control-label">Deuda 2</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="deuda2Conyuge"
 											name="deuda2Conyuge" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="deuda3Conyuge" class="col-lg-2 control-label">Deuda 3</label>
-									<div class="col-lg-10 input-group">
+									<label for="deuda3Conyuge" class="col-lg-4 control-label">Deuda 3</label>
+									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="deuda3Conyuge"
 											name="deuda3Conyuge" placeholder="" value="">
 									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<legend>Activos (Ahorro e inversión):</legend>
+								<div class="form-group">
+									<table class="table table-bordered">
+										<tr>
+											<td>A quién afecta</td>
+											<td>Tipo</td>
+											<td>Capital Hoy</td>
+											<td>Capital a la Jubilación</td>
+											<td>Prima o aportación mensual</td>
+											<td>Derechos Consolidados 31/12/2006</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta1">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo1">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy1"
+														name="capitalHoy1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion1"
+														name="capitalJubilacion1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual1"
+														name="primaMensual1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos1"
+														name="derechos1" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta2">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo2">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy2"
+														name="capitalHoy2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion2"
+														name="capitalJubilacion2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual2"
+														name="primaMensual2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos2"
+														name="derechos2" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta3">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo3">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy3"
+														name="capitalHoy3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion3"
+														name="capitalJubilacion3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual3"
+														name="primaMensual3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos3"
+														name="derechos3" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta4">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo4">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy4"
+														name="capitalHoy4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion4"
+														name="capitalJubilacion4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual4"
+														name="primaMensual4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos4"
+														name="derechos4" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta5">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo5">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy5"
+														name="capitalHoy5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion5"
+														name="capitalJubilacion5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual5"
+														name="primaMensual5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos5"
+														name="derechos5" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="afecta6">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+													<option>Ambos</option>
+												</select>
+											</td>
+											<td>
+												<select class="form-control" id="tipoActivo6">
+												  	<option>Plan de Pensiones</option>
+													<option>PPA</option>
+													<option>PIAS</option>
+													<option>Seguro de Ahorro</option>
+													<option>Unit Linked</option>
+													<option>Fondos de Inversión</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalHoy6"
+														name="capitalHoy6" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="capitalJubilacion6"
+														name="capitalJubilacion6" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaMensual6"
+														name="primaMensual6" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="derechos6"
+														name="derechos6" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</fieldset>
+							<fieldset>
+								<legend>Activos (Seguros de Vida Contratados):</legend>
+								<div class="form-group">
+									<table class="table table-bordered">
+										<tr>
+											<td>Asegurado</td>
+											<td>Fallecimiento</td>
+											<td>IPA</td>
+											<td>IPT</td>
+											<td>Prima anual</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado1">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento1"
+														name="fallecimiento1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa1"
+														name="ipa1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt1"
+														name="ipt1" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual1"
+														name="primaAnual1" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado2">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento2"
+														name="fallecimiento2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa2"
+														name="ipa2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt2"
+														name="ipt2" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual2"
+														name="primaAnual2" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado3">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento3"
+														name="fallecimiento3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa3"
+														name="ipa3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt3"
+														name="ipt3" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual3"
+														name="primaAnual3" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado4">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento4"
+														name="fallecimiento4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa4"
+														name="ipa4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt4"
+														name="ipt4" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual4"
+														name="primaAnual4" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select class="form-control" id="asegurado5">
+												  	<option>Titular</option>
+													<option>Cónyuge</option>
+												</select>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="fallecimiento5"
+														name="fallecimiento5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipa5"
+														name="ipa5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="ipt5"
+														name="ipt5" placeholder="" value="">
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" class="form-control" id="primaAnual5"
+														name="primaAnual5" placeholder="" value="">
+												</div>
+											</td>
+										</tr>
+									</table>
 								</div>
 							</fieldset>
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
 					<div data-step="3" class="printable">
-					  <div class="row">
+						<div class="row">
 							<fieldset>
-								<legend>En construcción</legend>
-								<div class="col-sm-6 col-lg-4">
-								
-								
-									<div id="canvas-holder">
-
-										<canvas id="chart-area" width="400" height="400"></canvas>
-										<canvas id="chart-area2" width="400" height="400"></canvas>
+								<legend>Resultado Incapacidad Temporal (IT)</legend>
+								<div class="form-group">
+									<label for="inputEmail" class="col-lg-2 control-label">Edad:</label>
+									<div class="col-lg-4 input-group">
+										<input type="text" class="form-control" name="nombre" id="edadConyuge" readonly
+											placeholder="" value="">
 									</div>
-								
-								
 								</div>
 							</fieldset>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 col-lg-4">
+								<div id="canvas-holder">
+									<canvas id="chart-area" width="400" height="400"></canvas>
+									<canvas id="chart-area2" width="400" height="400"></canvas>
+								</div>
+							</div>
 						</div>
 					</div>
 					

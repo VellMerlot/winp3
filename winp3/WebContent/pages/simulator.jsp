@@ -97,7 +97,7 @@
 										<label for="inputLabel3" class="col-lg-2 control-label">Fecha de Nacimiento:</label>
 										<div class="col-lg-4 input-group">
 											<div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control datepicker" id="fechaNacimientoTitular"/>
+							                    <input type='text' class="form-control datepicker" id="fechaNacimientoTitular" onChange='calculaEdad(fechaNacimientoTitular,edadTitular)'/>
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>
 							                    </span>
@@ -157,8 +157,7 @@
 									<div class="form-group">
 										<label for="inputEmail" class="col-lg-2 control-label">Nombre:</label>
 										<div class="col-lg-4 input-group">
-											<input type="text" class="form-control" name="nombre"
-												placeholder="" value="">
+											<input type="text" class="form-control" name="nombre" placeholder="" value="">
 										</div>
 									</div>
 									<div class="form-group">
@@ -173,7 +172,7 @@
 										<div class="col-lg-4 input-group">
 
 											<div class='input-group date' id='datetimepicker2'>
-							                    <input type='text' class="form-controldatepicker" id="fechaNacimientoConyuge"/>
+							                    <input type='text' class="form-control datepicker" id="fechaNacimientoConyuge" onChange='calculaEdad(fechaNacimientoConyuge,edadConyuge)'/>
 
 							                    <span class="input-group-addon">
 							                        <span class="glyphicon glyphicon-calendar"></span>

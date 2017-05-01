@@ -26,7 +26,7 @@ $(document).ready(function() {
 	      changeMonth: true,
 	      changeYear: true,
 	      dateFormat: 'dd/mm/yy',
-	      onSelect: calculateT,
+//	      onSelect: calculateT,
 	      maxDate: '+0d',     
 	      yearRange: '1910:+0',
 	    });
@@ -35,7 +35,7 @@ $(document).ready(function() {
 	      changeMonth: true,
 	      changeYear: true,
 	      dateFormat: 'dd/mm/yy',
-	      onSelect: calculateC,
+//	      onSelect: calculateC,
 	      maxDate: '+0d',     
 	      yearRange: '1910:+0',
 	    });
@@ -221,7 +221,7 @@ $(document).ready(function() {
 	});	
 });
 
-function calculateT() {
+/*function calculateT() {
 	
 	var start = $('#fechaNacimientoTitular').datepicker('getDate');
 	
@@ -247,7 +247,7 @@ function calculateC() {
   
 		$("#edadConyuge").val(age_year);
 	}
-}
+}*/
 
 function calculaEdad(campoOrigen, campoDestino) {
 	
@@ -272,29 +272,56 @@ function mostrarHijosForms(input) {
 	var formHijo = "";
 	
 	for (var i = 1; i < (parseInt(input.value) + 1); i++) {
-		formHijo = "<fieldset><legend>Cuestionario Hija/o</legend>" +
-				"<div class='form-group'><label for='userName' class='col-lg-2 control-label'>Nombre:</label>" +
-				"<div class='col-lg-4'> <input type='text' class='form-control' id='' name='NombreHijo" + i + 
-				"' placeholder='' value='' required>" +
+		formHijo = "<fieldset id='formHijo" + i + "'>" +
+				"<legend>Cuestionario Hija/o</legend>" +
+				"<div class='form-group'>" +
+				"<label for='userName' class='col-lg-2 control-label'>Nombre:</label>" +
+				"<div class='col-lg-4 input-group'>" +
+				"<input type='text' class='form-control' id='' name='NombreHijo" + i + "' placeholder='' value='' required>" +
 				"</div>" +
-				"</div><div class='form-group'> <label for='inputPassword' class='col-md-4 control-label'>Sexo:</label>" +
-				"<div class='col-md-8 input-group'><label class='radio-inline'><input type='radio' name='sexoHijo" + i + "'>Hombre</label>" +
-				"<label class='radio-inline'><input type='radio' name='sexoHijo" + i + "'>Mujer</label></div></div><div class='form-group'>" +
+				"</div>" +
+				"<div class='form-group'>" +
+				"<label for='inputPassword' class='col-lg-2 control-label'>Sexo:</label>" +
+				"<div class='col-lg-4 input-group'>" +
+				"<label class='radio-inline'><input type='radio' name='sexoHijo" + i + "'>Hombre</label>" +
+				"<label class='radio-inline'><input type='radio' name='sexoHijo" + i + "'>Mujer</label>" +
+				"</div>" +
+				"</div>" +
+				"<div class='form-group'>" +
 				"<label for='inputLabel3' class='col-lg-2 control-label'>Fecha de Nacimiento:</label>" +
 				"<div class='col-lg-4 input-group'>" +
 				"<div class='input-group date' id='datetimepicker1'>" +
 				"<input type='text' class='form-control datepicker' id='fechaNacimientoHijo" + i + "'" +
-				" onChange='calculaEdad(fechaNacimientoHijo"+i+",edadHijo"+i+")'/>" +
+				" onChange='calculaEdad(fechaNacimientoHijo"+i+",edadHijo"+i+");CalculaOrfandad(HijoDe" + i + ", edadHijo" + i + ", OrfandadHijo" + i + ", OrfandadCHijo" + i + ");'/>" +
 				"<span class='input-group-addon'>" +
 				"<span class='glyphicon glyphicon-calendar'></span> </span></div></div></div><div class='form-group'>" +
 				"<label for='lastName' class='col-lg-2 control-label'>Hijo de:</label> <div class='col-lg-10'>" +
-				"<select class='form-control' id='HijoDe" + i + "'><option>Ambos</option><option>Solo Titular</option><option>Solo Conyuge</option>" +
-				"</select> </div></div><div class='form-group'> <label for='email' class='col-lg-2 control-label'>Edad:</label>" +
-				"<div class='col-lg-10'> <input type='text' class='form-control' id='edadHijo" + i + "' name='edadHijo" + i + "' placeholder='' value='' readonly>" +
+				"<select class='form-control' id='HijoDe" + i + "' onChange='CalculaOrfandad(HijoDe" + i + ", edadHijo" + i + ", OrfandadHijo" + i + ", OrfandadCHijo" + i + ")'>" +
+						"<option>Ambos</option>" +
+						"<option>Sólo Titular</option>" +
+						"<option>Sólo Cónyuge</option>" +
+				"</select>" +
 				"</div>" +
-				"</div><div class='form-group'> <label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label>" +
-				"<div class='col-lg-10'> <input type='text' class='form-control' id='' name='OrfandadHijo" + i + "' placeholder='' value='' readonly>" +
-				"</div></div></fieldset>";
+				"</div>" +
+				"<div class='form-group'>" +
+				"<label for='email' class='col-lg-2 control-label'>Edad:</label>" +
+				"<div class='col-lg-10'>" +
+				"<input type='text' class='form-control' id='edadHijo" + i + "' name='edadHijo" + i + "' placeholder='' value='' readonly>" +
+				"</div>" +
+				"</div>" +
+				"<div class='form-group'>" +
+				"<label for='role' class='col-lg-2 control-label'>Derecho a Orfandad:</label>" +
+				"<div class='col-lg-10'>" +
+				"<input type='text' class='form-control' id='' name='OrfandadHijo" + i + "' placeholder='' value='' readonly>" +
+				"</div>" +
+				"</div>" +
+				"<div class='form-group'>" +
+				"<label for='role' class='col-lg-2 control-label'>Derecho a Orfandad (C):</label>" +
+				"<div class='col-lg-10'>" +
+				"<input type='text' class='form-control' id='' name='OrfandadCHijo" + i + "' placeholder='' value='' readonly>" +
+				"</div>" +
+				"</div>" +
+				"</fieldset>";
 		$( "#step1" ).append( formHijo );
 	}
 	
@@ -302,7 +329,7 @@ function mostrarHijosForms(input) {
 	      changeMonth: true,
 	      changeYear: true,
 	      dateFormat: 'dd/mm/yy',
-	      onSelect: calculateC,
+//	      onSelect: calculateC,
 	      maxDate: '+0d',     
 	      yearRange: '1910:+0',
 	    });
@@ -313,6 +340,32 @@ function showConyugeForm(mostrar) {
 		$("#conyugeForm").show();
 	} else {
 		$("#conyugeForm").hide();
+	}
+}
+
+function CalculaOrfandad(hijoDe, edadHijo, OrfandadHijo, OrfandadCHijo) {
+	var hijo = edadHijo.name.slice(4);
+	
+	if (edadHijo.value) {
+		if (edadHijo.value < 25) {
+			//quizá
+			if (hijoDe.value == "Ambos") {
+				OrfandadHijo.value = 'Sí';
+				OrfandadCHijo.value = 'Sí';
+			} else if (hijoDe.value == "Sólo Titular") {
+				OrfandadHijo.value = 'Sí';
+				OrfandadCHijo.value = 'No';
+			} else {
+				OrfandadHijo.value = 'No';
+				OrfandadCHijo.value = 'Sí';
+			}
+		} else {
+			//nope
+			OrfandadHijo.value = 'No';
+			OrfandadCHijo.value = 'No';
+		}
+	} else {
+		alert('Seleccione fecha de nacimiento de ' + hijo);
 	}
 	
 }

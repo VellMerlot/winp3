@@ -92,7 +92,13 @@ $(document).ready(function() {
 	
 	
 	
+	
 	var ctx = document.getElementById("chart-area").getContext("2d");
+	
+	var gradient = ctx.createLinearGradient(0, 0, 200, 0);
+	gradient.addColorStop(0, 'red');
+	gradient.addColorStop(1, 'green');
+	
 	var myChart = new Chart(ctx, {
 	    type: 'horizontalBar',
 	    data: {
@@ -101,7 +107,8 @@ $(document).ready(function() {
 	            label: '# of Votes',
 	            data: [12, 19, 3, 5, 2, 3],
 	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.2)',
+	            	/*'rgba(255, 99, 132, 0.2)',*/
+	            	gradient,
 	                'rgba(54, 162, 235, 0.2)',
 	                'rgba(255, 206, 86, 0.2)',
 	                'rgba(75, 192, 192, 0.2)',
@@ -116,7 +123,11 @@ $(document).ready(function() {
 	                'rgba(153, 102, 255, 1)',
 	                'rgba(255, 159, 64, 1)'
 	            ],
-	            borderWidth: 1
+	            borderWidth: 1,
+	            /*backgroundColor: gradient,
+				hoverBackgroundColor: gradient,
+				hoverBorderWidth: 2,
+				hoverBorderColor: 'purple'*/
 	        }]
 	    },
 	    options: {
@@ -126,6 +137,14 @@ $(document).ready(function() {
 	                    beginAtZero:true
 	                }
 	            }]
+	        },
+	        legend: {
+	            display: true,
+	            position: 'right'
+	        },
+	        title: {
+	            display: true,
+	            text: 'Custom Chart Title'
 	        }
 	    }
 	});	
@@ -138,6 +157,7 @@ $(document).ready(function() {
 	        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
 	        datasets: [
 	        	{
+	        		yAxesGroup: 'etiqueta1',
 	            data: [12, 19, 3, 5, 2, 3],
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
@@ -158,6 +178,7 @@ $(document).ready(function() {
 	            borderWidth: 1
 	        },
 	        {
+	        	 yAxesGroup: 'etiqueta2',
 	            data: [15, 29, 9, 8, 4, 4],
 	            backgroundColor: [
 	                'rgba(155, 99, 132, 0.2)',
@@ -183,7 +204,18 @@ $(document).ready(function() {
 	        scales: {
 	        	xAxes: [{
 	                stacked: true
+	            }],
+	            yAxes: [{
+	                stacked: true
 	            }]
+	        },
+	        legend: {
+	            display: true,
+	            position: 'right'
+	        },
+	        title: {
+	            display: true,
+	            text: 'Custom Chart Title'
 	        }
 	    }
 	});	

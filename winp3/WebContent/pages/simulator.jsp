@@ -187,7 +187,15 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
+<<<<<<< HEAD
 					<div data-step="2" id="divStep2" class="printable">
+=======
+<<<<<<< HEAD
+					<div data-step="2" id="divStep2" class="printable">
+=======
+					<div data-step="2">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 					   <div class="row">
 							<fieldset>
 								<legend>Situación Seguridad Social (Titular)</legend>
@@ -1411,9 +1419,25 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
+<<<<<<< HEAD
 					<div data-step="3" id="divStep3" class="printable">
+=======
+<<<<<<< HEAD
+					<div data-step="3" id="divStep3" class="printable">
+=======
+					<div data-step="3" class="printable">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 						<div class="row">
 							<fieldset>
+<<<<<<< HEAD
+								<legend>En construcción</legend>
+								<div class="col-sm-6 col-lg-4">					
+									<div id="canvas-holder">
+										<canvas id="chart-area" width="400" height="400"></canvas>
+										<canvas id="chart-area2" width="400" height="400"></canvas>
+									</div>				
+=======
 								<legend>Resultado Incapacidad Temporal (IT)</legend>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Edad:</label>
@@ -1421,6 +1445,7 @@
 										<input type="text" class="form-control" name="nombre" id="edadConyuge"
 											placeholder="" value="">
 									</div>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 								</div>
 							</fieldset>
 						</div>

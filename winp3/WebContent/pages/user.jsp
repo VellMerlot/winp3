@@ -95,7 +95,7 @@
                                     
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <a href="<c:url value='/web/pages/users' />" class="btn btn-default" role="button">Cancela</a>
+                      <a href="<c:url value='/web/pages/users' />" class="btn btn-default" role="button">Cancelar</a>
                       <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                   </div>
@@ -119,7 +119,7 @@
               	<span id="inputPassword"></span>
             </div>
             <br>
-            <p class="text-info">Debe copiar éste password para enviarselo al usuario. Después de cerrar la ventana no estará disponible.</p>
+            <p class="text-info">Debe copiar este password para enviárselo al usuario. Después de cerrar la ventana no estará disponible.</p>
           
         <div class="modal-footer">
         	<button type="button" id="btn_password" class="btn btn-primary" data-dismiss="modal">Aceptar</button>       

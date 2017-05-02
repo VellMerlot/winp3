@@ -187,7 +187,19 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
+<<<<<<< HEAD
 					<div data-step="2" id="divStep2">
+=======
+<<<<<<< HEAD
+					<div data-step="2" id="divStep2" class="printable">
+=======
+<<<<<<< HEAD
+					<div data-step="2" id="divStep2" class="printable">
+=======
+					<div data-step="2">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 					   <div class="row">
 							<fieldset>
 								<legend>Situación Seguridad Social (Titular)</legend>
@@ -449,14 +461,28 @@
 							<fieldset>
 								<legend>Gastos </legend>
 								<div class="form-group">
+<<<<<<< HEAD
 									<label for="ahorroTitular" class="col-lg-4 control-label">Capacidad Mensual Ahorro (Titular)</label>
+=======
+									<label for="ahorroTitular" class="col-lg-4 control-label">Capacidad Mensual Ahorro</label>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ahorroTitular"
 											name="ahorroTitular" placeholder="" value="">
 									</div>
 								</div>
+<<<<<<< HEAD
+=======
+							</fieldset>
+							<fieldset class="conyugeForm">
+								<legend>Gastos (Conyuge)</legend>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 								<div class="form-group">
+<<<<<<< HEAD
 									<label for="ahorroConyuge" class="col-lg-4 control-label">Capacidad Mensual Ahorro (Conyuge)</label>
+=======
+									<label for="ahorroConyuge" class="col-lg-4 control-label">Capacidad Mensual Ahorro</label>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ahorroConyuge"
 											name="ahorroConyuge" placeholder="" value="">
@@ -466,13 +492,65 @@
 							<fieldset>
 								<legend>Deudas pendientes</legend>
 								<div class="form-group">
+<<<<<<< HEAD
 									<label for="ahorroTitular" class="col-lg-4 control-label">Capacidad Mensual Ahorro (Titular)</label>
 									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="ahorroTitular"
 											name="ahorroTitular" placeholder="" value="">
+=======
+									<label for="hipotecaTitular" class="col-lg-4 control-label">Hipoteca</label>
+									<div class="col-lg-6 input-group">
+										<input type="text" class="form-control" id="hipotecaTitular"
+											name="hipotecaTitular" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
+									<label for="deuda2Titular" class="col-lg-4 control-label">Deuda 2</label>
+									<div class="col-lg-6 input-group">
+										<input type="text" class="form-control" id="deuda2Titular"
+											name="deuda2Titular" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda3Titular" class="col-lg-4 control-label">Deuda 3</label>
+									<div class="col-lg-6 input-group">
+										<input type="text" class="form-control" id="deuda3Titular"
+											name="deuda3Titular" placeholder="" value="">
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="conyugeForm">
+								<legend>Deudas pendientes (Conyuge)</legend>
+								<div class="form-group">
+									<label for="hipotecaConyuge" class="col-lg-4 control-label">Hipoteca</label>
+									<div class="col-lg-6 input-group">
+										<input type="text" class="form-control" id="hipotecaConyuge"
+											name="hipotecaConyuge" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda2Conyuge" class="col-lg-4 control-label">Deuda 2</label>
+									<div class="col-lg-6 input-group">
+										<input type="text" class="form-control" id="deuda2Conyuge"
+											name="deuda2Conyuge" placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deuda3Conyuge" class="col-lg-4 control-label">Deuda 3</label>
+									<div class="col-lg-6 input-group">
+										<input type="text" class="form-control" id="deuda3Conyuge"
+											name="deuda3Conyuge" placeholder="" value="">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+									</div>
+								</div>
+<<<<<<< HEAD
+=======
+							</fieldset>
+							<fieldset>
+								<legend>Activos (Ahorro e inversión):</legend>
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+								<div class="form-group">
+<<<<<<< HEAD
 									<label for="deuda1Titular" class="col-lg-4 control-label">Deuda 1 (Titular)</label>
 									<div class="col-lg-6 input-group">
 										<input type="text" class="form-control" id="deuda1Titular"
@@ -514,6 +592,8 @@
 							<fieldset>
 								<legend>Activos (Ahorro e inversión):</legend>
 								<div class="form-group">
+=======
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 									<table class="table table-bordered">
 										<tr>
 											<td>A quién afecta</td>
@@ -1408,9 +1488,32 @@
 							<!-- /.row this actually does not appear to be needed with the form-horizontal -->
 						</div>
 					</div>
+<<<<<<< HEAD
 					<div data-step="3" id="divStep3" class="printable">
+=======
+<<<<<<< HEAD
+					<div data-step="3" id="divStep3" class="printable">
+=======
+<<<<<<< HEAD
+					<div data-step="3" id="divStep3" class="printable">
+=======
+					<div data-step="3" class="printable">
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 						<div class="row">
 							<fieldset>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+								<legend>En construcción</legend>
+								<div class="col-sm-6 col-lg-4">					
+									<div id="canvas-holder">
+										<canvas id="chart-area" width="400" height="400"></canvas>
+										<canvas id="chart-area2" width="400" height="400"></canvas>
+									</div>				
+=======
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 								<legend>Resultado Incapacidad Temporal (IT)</legend>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Edad:</label>
@@ -1418,6 +1521,10 @@
 										<input type="text" class="form-control" name="nombre" id="edadConyuge"
 											placeholder="" value="">
 									</div>
+<<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
+>>>>>>> branch 'master' of https://github.com/geraldinems/winp3.git
 								</div>
 							</fieldset>
 						</div>
